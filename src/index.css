@@ -1,5 +1,216 @@
 @import "tailwindcss";
 
+/* ═══════════════════════════════════════════
+   THEME SYSTEM — CSS Custom Properties
+   Dark theme = default (matches current design exactly)
+   Light theme = [data-theme="light"] override
+   ═══════════════════════════════════════════ */
+
+:root {
+  /* Backgrounds */
+  --bg-primary: #0F0F0F;
+  --bg-warm: #1A1614;
+  --bg-footer: #0A0A0A;
+  --bg-agenda: #0C1217; /* Very dark navy */
+  --surface: #1E1A18;
+  --surface-hover: #252018;
+
+  /* Brand */
+  --gold: #C8A96E;
+  --gold-light: #D4BB8A;
+  --terracotta: #D4845A;
+  --terracotta-dark: #B86D45;
+
+  /* Text */
+  --text-primary: #E8DDD4;
+  --text-body: #B8ADA5;
+  --text-muted: #8A7F79;
+  --text-dim: #4A4540;
+  --text-disabled: #3A3532;
+  --text-on-dark-accent: #0F0F0F;
+  --text-agenda-heading: #E8DDD4;
+  --text-agenda-body: #8A7F79;
+
+  /* Borders */
+  --border: rgba(42, 37, 34, 0.8);
+  --border-soft: rgba(42, 37, 34, 0.6);
+  --border-solid: rgba(42, 37, 34, 1);
+
+  /* Gold alphas */
+  --gold-a03: rgba(200, 169, 110, 0.03);
+  --gold-a04: rgba(200, 169, 110, 0.04);
+  --gold-a05: rgba(200, 169, 110, 0.05);
+  --gold-a08: rgba(200, 169, 110, 0.08);
+  --gold-a12: rgba(200, 169, 110, 0.12);
+  --gold-a15: rgba(200, 169, 110, 0.15);
+  --gold-a20: rgba(200, 169, 110, 0.2);
+  --gold-a25: rgba(200, 169, 110, 0.25);
+  --gold-a30: rgba(200, 169, 110, 0.3);
+  --gold-a40: rgba(200, 169, 110, 0.4);
+  --gold-a50: rgba(200, 169, 110, 0.5);
+
+  /* Terracotta alphas */
+  --terra-a06: rgba(212, 132, 90, 0.06);
+  --terra-a08: rgba(212, 132, 90, 0.08);
+  --terra-a10: rgba(212, 132, 90, 0.1);
+  --terra-a12: rgba(212, 132, 90, 0.12);
+  --terra-a20: rgba(212, 132, 90, 0.2);
+  --terra-a30: rgba(212, 132, 90, 0.3);
+  --terra-a40: rgba(212, 132, 90, 0.4);
+  --terra-a60: rgba(212, 132, 90, 0.6);
+  --terra-a70: rgba(212, 132, 90, 0.7);
+
+  /* Text alphas */
+  --text-primary-a25: rgba(232, 221, 212, 0.25);
+
+  /* Overlays / Glass */
+  --navbar-bg: rgba(15, 13, 11, 0.85);
+  --navbar-mobile-bg: rgba(15, 13, 11, 0.97);
+  --surface-glass: rgba(30, 26, 24, 0.85);
+  --input-bg: rgba(42, 37, 34, 0.6);
+  --input-bg-hover: rgba(42, 37, 34, 0.9);
+
+  /* Selection */
+  --selection-bg: rgba(212, 132, 90, 0.3);
+
+  /* Decorative */
+  --grain-opacity: 0.04;
+  --hero-gradient: linear-gradient(135deg, #0F0F0F 0%, #1A1614 40%, #1E1A18 100%);
+  --hero-radial-1: rgba(200, 169, 110, 0.08);
+  --hero-radial-2: rgba(212, 132, 90, 0.06);
+  --divider-accent: linear-gradient(to right, transparent, rgba(200, 169, 110, 0.25), transparent);
+  --divider-accent-soft: linear-gradient(to right, transparent, rgba(200, 169, 110, 0.2), transparent);
+  --photo-gradient: linear-gradient(180deg, #2A2018 0%, #1A1614 50%, #0F0F0F 100%);
+  --photo-silhouette: linear-gradient(to top, rgba(30,26,24,0.6) 0%, rgba(40,32,26,0.4) 60%, transparent 100%);
+  --scroll-line: linear-gradient(to bottom, #C8A96E, transparent);
+  --vertical-accent: linear-gradient(to bottom, transparent, rgba(200, 169, 110, 0.3), transparent);
+  --divider-gold-to-right: linear-gradient(to right, rgba(200, 169, 110, 0.2), transparent);
+  --top-accent-line: linear-gradient(to right, #C8A96E, transparent);
+
+  /* Scrollbar */
+  --scrollbar-track: #1A1614;
+  --scrollbar-thumb: #C8A96E;
+
+  /* WhatsApp */
+  --whatsapp-bg: rgba(37, 211, 102, 0.04);
+  --whatsapp-border: rgba(37, 211, 102, 0.12);
+
+  /* Deco text on accent bg */
+  --text-on-terra: rgba(15, 15, 15, 0.7);
+
+  /* Shadows */
+  --card-shadow: none;
+
+  /* Scheduling color-scheme */
+  --color-scheme: dark;
+}
+
+/* ═══════════════════════════════════════════
+   LIGHT THEME
+   Warm, premium, high-contrast
+   ═══════════════════════════════════════════ */
+[data-theme="light"] {
+  /* Backgrounds — lowered brightness, slightly more grey/stone */
+  --bg-primary: #F0EDE9;
+  --bg-warm: #E6E2DC;
+  --bg-footer: #DCD8D2;
+  --bg-agenda: #1A2836; /* Navy blue */
+  --surface: #FFFFFF;
+  --surface-hover: #F5F2EF;
+
+  /* Brand — deeper for higher contrast */
+  --gold: #8C7038;
+  --gold-light: #A68845;
+  --terracotta: #B05526;
+  --terracotta-dark: #90401A;
+
+  /* Text — flipped for readability, darker for contrast */
+  --text-primary: #12100E;
+  --text-body: #3A3530;
+  --text-muted: #655E58;
+  --text-dim: #8A837D;
+  --text-disabled: #B0A8A0;
+  --text-on-dark-accent: #FFFFFF;
+  --text-agenda-heading: #FFFFFF;
+  --text-agenda-body: #B4C0CB;
+
+  /* Borders — stronger contrast */
+  --border: rgba(140, 130, 120, 0.45);
+  --border-soft: rgba(140, 130, 120, 0.25);
+  --border-solid: rgba(140, 130, 120, 0.6);
+
+  /* Shadows for depth (prevent "flat" look) */
+  --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+
+  /* Gold alphas on light bg */
+  --gold-a03: rgba(158, 128, 69, 0.04);
+  --gold-a04: rgba(158, 128, 69, 0.05);
+  --gold-a05: rgba(158, 128, 69, 0.06);
+  --gold-a08: rgba(158, 128, 69, 0.08);
+  --gold-a12: rgba(158, 128, 69, 0.1);
+  --gold-a15: rgba(158, 128, 69, 0.12);
+  --gold-a20: rgba(158, 128, 69, 0.15);
+  --gold-a25: rgba(158, 128, 69, 0.18);
+  --gold-a30: rgba(158, 128, 69, 0.22);
+  --gold-a40: rgba(158, 128, 69, 0.3);
+  --gold-a50: rgba(158, 128, 69, 0.4);
+
+  /* Terracotta alphas on light bg */
+  --terra-a06: rgba(192, 106, 58, 0.06);
+  --terra-a08: rgba(192, 106, 58, 0.08);
+  --terra-a10: rgba(192, 106, 58, 0.1);
+  --terra-a12: rgba(192, 106, 58, 0.12);
+  --terra-a20: rgba(192, 106, 58, 0.15);
+  --terra-a30: rgba(192, 106, 58, 0.2);
+  --terra-a40: rgba(192, 106, 58, 0.3);
+  --terra-a60: rgba(192, 106, 58, 0.5);
+  --terra-a70: rgba(192, 106, 58, 0.6);
+
+  /* Text alphas */
+  --text-primary-a25: rgba(26, 22, 20, 0.2);
+
+  /* Overlays / Glass */
+  --navbar-bg: rgba(250, 247, 244, 0.88);
+  --navbar-mobile-bg: rgba(250, 247, 244, 0.97);
+  --surface-glass: rgba(255, 255, 255, 0.9);
+  --input-bg: rgba(240, 235, 229, 0.8);
+  --input-bg-hover: rgba(230, 225, 218, 0.95);
+
+  /* Selection */
+  --selection-bg: rgba(192, 106, 58, 0.2);
+
+  /* Decorative */
+  --grain-opacity: 0.025;
+  --hero-gradient: linear-gradient(135deg, #FAF7F4 0%, #F0EBE5 40%, #E8E2DB 100%);
+  --hero-radial-1: rgba(158, 128, 69, 0.08);
+  --hero-radial-2: rgba(192, 106, 58, 0.05);
+  --divider-accent: linear-gradient(to right, transparent, rgba(158, 128, 69, 0.2), transparent);
+  --divider-accent-soft: linear-gradient(to right, transparent, rgba(158, 128, 69, 0.15), transparent);
+  --photo-gradient: linear-gradient(180deg, #E8E2DB 0%, #F0EBE5 50%, #FAF7F4 100%);
+  --photo-silhouette: linear-gradient(to top, rgba(240,235,229,0.7) 0%, rgba(230,225,218,0.4) 60%, transparent 100%);
+  --scroll-line: linear-gradient(to bottom, var(--gold), transparent);
+  --vertical-accent: linear-gradient(to bottom, transparent, rgba(158, 128, 69, 0.2), transparent);
+  --divider-gold-to-right: linear-gradient(to right, rgba(158, 128, 69, 0.2), transparent);
+  --top-accent-line: linear-gradient(to right, var(--gold), transparent);
+
+  /* Scrollbar */
+  --scrollbar-track: #F0EBE5;
+  --scrollbar-thumb: #9E8045;
+
+  /* WhatsApp */
+  --whatsapp-bg: rgba(37, 211, 102, 0.06);
+  --whatsapp-border: rgba(37, 211, 102, 0.15);
+
+  /* Deco text on accent bg */
+  --text-on-terra: rgba(255, 255, 255, 0.8);
+
+  /* Scheduling color-scheme */
+  --color-scheme: light;
+}
+
+/* ═══════════════════════════════════════════
+   Tailwind theme tokens (keep for utility classes)
+   ═══════════════════════════════════════════ */
 @theme {
   --color-bg-primary: #0F0F0F;
   --color-bg-warm: #1A1614;
@@ -26,6 +237,9 @@
   --animate-fade-up: fade-up 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
+/* ═══════════════════════════════════════════
+   Keyframes
+   ═══════════════════════════════════════════ */
 @keyframes grain {
   0%, 100% { transform: translate(0, 0); }
   10% { transform: translate(-5%, -10%); }
@@ -64,6 +278,9 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* ═══════════════════════════════════════════
+   Base / Reset
+   ═══════════════════════════════════════════ */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -75,11 +292,12 @@ html {
 }
 
 body {
-  background-color: #0F0F0F;
-  color: #E8DDD4;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
   font-family: "DM Sans", sans-serif;
   overflow-x: hidden;
   cursor: none;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 @media (max-width: 768px) {
@@ -91,20 +309,22 @@ body {
   width: 4px;
 }
 ::-webkit-scrollbar-track {
-  background: #1A1614;
+  background: var(--scrollbar-track);
 }
 ::-webkit-scrollbar-thumb {
-  background: #C8A96E;
+  background: var(--scrollbar-thumb);
   border-radius: 2px;
 }
 
 /* Selection */
 ::selection {
-  background: rgba(212, 132, 90, 0.3);
-  color: #E8DDD4;
+  background: var(--selection-bg);
+  color: var(--text-primary);
 }
 
-/* Utility classes */
+/* ═══════════════════════════════════════════
+   Utility classes
+   ═══════════════════════════════════════════ */
 .font-display {
   font-family: "Cormorant Garamond", serif;
 }
@@ -115,12 +335,15 @@ body {
   width: 200%;
   height: 200%;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
-  opacity: 0.04;
+  opacity: var(--grain-opacity);
   animation: grain 8s steps(10) infinite;
   pointer-events: none;
   z-index: 1;
 }
 
+/* ═══════════════════════════════════════════
+   Scroll reveal animations
+   ═══════════════════════════════════════════ */
 .section-reveal {
   opacity: 0;
   transform: translateY(40px);
@@ -154,11 +377,110 @@ body {
   transform: translateX(0);
 }
 
+/* ═══════════════════════════════════════════
+   Card hover utility
+   ═══════════════════════════════════════════ */
 .card-hover {
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .card-hover:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 60px rgba(200, 169, 110, 0.1);
+  box-shadow: 0 20px 60px var(--gold-a12);
+}
+
+/* ═══════════════════════════════════════════
+   Testimonials Carousel & Cards
+   ═══════════════════════════════════════════ */
+.testimonials-track {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 20px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  user-select: none;
+  scroll-behavior: smooth;
+
+  padding-left: max(40px, calc((100vw - 1200px) / 2 + 40px));
+  padding-right: max(40px, calc((100vw - 1200px) / 2 + 40px));
+  scroll-padding-left: max(40px, calc((100vw - 1200px) / 2 + 40px));
+  scroll-padding-right: max(40px, calc((100vw - 1200px) / 2 + 40px));
+}
+
+.testimonials-track::-webkit-scrollbar {
+  display: none;
+}
+
+.testimonial-card {
+  /* Desktop: exactly 3 cards visible in the 1120px available space (1200 - 80px padding) */
+  width: calc((min(100vw - 80px, 1120px) - 40px) / 3);
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--card-shadow, none);
+  border-radius: 12px;
+  padding: 36px;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  transition: border-color 0.3s ease, transform 0.3s ease, background-color 0.4s ease;
+}
+
+.testimonial-card:hover {
+  border-color: var(--gold-a20);
+  transform: translateY(-4px);
+}
+
+/* Tablet: 2 cards */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .testimonial-card {
+    width: calc((100vw - 80px - 20px) / 2);
+  }
+}
+
+/* Mobile: 1 card, compact */
+@media (max-width: 768px) {
+  .testimonial-card {
+    width: calc(100vw - 80px);
+    max-width: 340px;
+    padding: 24px;
+  }
+  .testimonial-card p {
+    margin-bottom: 20px !important;
+  }
+}
+
+/* ═══════════════════════════════════════════
+   Theme Toggle Button
+   ═══════════════════════════════════════════ */
+.theme-toggle {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.theme-toggle:hover {
+  border-color: var(--gold-a40);
+  color: var(--gold);
+  background-color: var(--gold-a08);
+}
+
+.theme-toggle svg {
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+}
+
+/* ═══════════════════════════════════════════
+   Smooth theme transition for sections
+   ═══════════════════════════════════════════ */
+section, footer, nav, .testimonial-card, .card-hover {
+  transition: background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease;
 }

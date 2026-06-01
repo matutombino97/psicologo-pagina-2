@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import CustomCursor from './components/CustomCursor';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -8,6 +7,7 @@ import Especialidades from './components/Especialidades';
 import Testimonios from './components/Testimonios';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
+import { ThemeProvider } from './context/ThemeContext';
 import { useScrollReveal } from './hooks/useScrollReveal';
 import './index.css';
 
@@ -15,7 +15,7 @@ function App() {
   useScrollReveal();
 
   return (
-    <>
+    <ThemeProvider>
       <CustomCursor />
       <Navbar />
       <main>
@@ -27,7 +27,7 @@ function App() {
         <FAQ />
       </main>
       <Footer />
-    </>
+    </ThemeProvider>
   );
 }
 

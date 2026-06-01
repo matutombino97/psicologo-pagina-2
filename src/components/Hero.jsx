@@ -8,7 +8,7 @@ export default function Hero() {
         display: 'flex',
         alignItems: 'center',
         overflow: 'hidden',
-        backgroundColor: '#1A1614',
+        backgroundColor: 'var(--bg-warm)',
       }}
     >
       {/* Background: layered gradients simulating warm photo */}
@@ -17,9 +17,9 @@ export default function Hero() {
           position: 'absolute',
           inset: 0,
           background: `
-            radial-gradient(ellipse 80% 60% at 70% 40%, rgba(200, 169, 110, 0.08) 0%, transparent 60%),
-            radial-gradient(ellipse 60% 80% at 20% 80%, rgba(212, 132, 90, 0.06) 0%, transparent 50%),
-            linear-gradient(135deg, #0F0F0F 0%, #1A1614 40%, #1E1A18 100%)
+            radial-gradient(ellipse 80% 60% at 70% 40%, var(--hero-radial-1) 0%, transparent 60%),
+            radial-gradient(ellipse 60% 80% at 20% 80%, var(--hero-radial-2) 0%, transparent 50%),
+            var(--hero-gradient)
           `,
         }}
       />
@@ -37,7 +37,7 @@ export default function Hero() {
           fontFamily: '"Cormorant Garamond", serif',
           fontSize: 'clamp(200px, 30vw, 500px)',
           fontWeight: '700',
-          color: 'rgba(200, 169, 110, 0.04)',
+          color: 'var(--gold-a04)',
           lineHeight: 1,
           userSelect: 'none',
           pointerEvents: 'none',
@@ -55,7 +55,7 @@ export default function Hero() {
           top: '20%',
           bottom: '20%',
           width: '1px',
-          background: 'linear-gradient(to bottom, transparent, rgba(200, 169, 110, 0.3), transparent)',
+          background: 'var(--vertical-accent)',
         }}
       />
 
@@ -84,7 +84,7 @@ export default function Hero() {
               display: 'inline-block',
               width: '32px',
               height: '1px',
-              backgroundColor: '#C8A96E',
+              backgroundColor: 'var(--gold)',
             }}
           />
           <span
@@ -92,7 +92,7 @@ export default function Hero() {
               fontFamily: '"DM Sans", sans-serif',
               fontSize: '0.75rem',
               fontWeight: '500',
-              color: '#C8A96E',
+              color: 'var(--gold)',
               textTransform: 'uppercase',
               letterSpacing: '0.15em',
             }}
@@ -107,7 +107,7 @@ export default function Hero() {
             fontFamily: '"Cormorant Garamond", serif',
             fontSize: 'clamp(3rem, 7vw, 7rem)',
             fontWeight: '300',
-            color: '#E8DDD4',
+            color: 'var(--text-primary)',
             lineHeight: '1.05',
             letterSpacing: '-0.02em',
             maxWidth: '900px',
@@ -118,7 +118,7 @@ export default function Hero() {
           <span
             style={{
               fontStyle: 'italic',
-              color: '#C8A96E',
+              color: 'var(--gold)',
             }}
           >
             en manos
@@ -132,7 +132,7 @@ export default function Hero() {
             fontFamily: '"DM Sans", sans-serif',
             fontSize: 'clamp(1rem, 1.5vw, 1.125rem)',
             fontWeight: '300',
-            color: '#8A7F79',
+            color: 'var(--text-muted)',
             maxWidth: '520px',
             lineHeight: '1.8',
             marginBottom: '52px',
@@ -150,9 +150,9 @@ export default function Hero() {
               fontFamily: '"DM Sans", sans-serif',
               fontSize: '0.95rem',
               fontWeight: '500',
-              color: '#0F0F0F',
+              color: 'var(--text-on-dark-accent)',
               textDecoration: 'none',
-              backgroundColor: '#C8A96E',
+              backgroundColor: 'var(--gold)',
               padding: '16px 36px',
               borderRadius: '4px',
               letterSpacing: '0.02em',
@@ -160,11 +160,11 @@ export default function Hero() {
               display: 'inline-block',
             }}
             onMouseEnter={(e) => {
-              e.target.style.backgroundColor = '#D4BB8A';
+              e.target.style.backgroundColor = 'var(--gold-light)';
               e.target.style.transform = 'translateY(-2px)';
             }}
             onMouseLeave={(e) => {
-              e.target.style.backgroundColor = '#C8A96E';
+              e.target.style.backgroundColor = 'var(--gold)';
               e.target.style.transform = 'translateY(0)';
             }}
           >
@@ -176,9 +176,9 @@ export default function Hero() {
               fontFamily: '"DM Sans", sans-serif',
               fontSize: '0.95rem',
               fontWeight: '400',
-              color: '#E8DDD4',
+              color: 'var(--text-primary)',
               textDecoration: 'none',
-              border: '1px solid rgba(232, 221, 212, 0.25)',
+              border: '1px solid var(--text-primary-a25)',
               padding: '16px 36px',
               borderRadius: '4px',
               letterSpacing: '0.02em',
@@ -186,12 +186,12 @@ export default function Hero() {
               display: 'inline-block',
             }}
             onMouseEnter={(e) => {
-              e.target.style.borderColor = 'rgba(200, 169, 110, 0.5)';
-              e.target.style.color = '#C8A96E';
+              e.target.style.borderColor = 'var(--gold-a50)';
+              e.target.style.color = 'var(--gold)';
             }}
             onMouseLeave={(e) => {
-              e.target.style.borderColor = 'rgba(232, 221, 212, 0.25)';
-              e.target.style.color = '#E8DDD4';
+              e.target.style.borderColor = 'var(--text-primary-a25)';
+              e.target.style.color = 'var(--text-primary)';
             }}
           >
             Conocer más →
@@ -207,19 +207,19 @@ export default function Hero() {
             display: 'inline-flex',
             alignItems: 'center',
             gap: '12px',
-            backgroundColor: 'rgba(30, 26, 24, 0.85)',
-            border: '1px solid rgba(200, 169, 110, 0.2)',
+            backgroundColor: 'var(--surface-glass)',
+            border: '1px solid var(--gold-a20)',
             padding: '12px 20px',
             borderRadius: '8px',
             backdropFilter: 'blur(12px)',
           }}
         >
-          <span style={{ color: '#C8A96E', fontSize: '1rem' }}>✦</span>
+          <span style={{ color: 'var(--gold)', fontSize: '1rem' }}>✦</span>
           <span
             style={{
               fontFamily: '"DM Sans", sans-serif',
               fontSize: '0.875rem',
-              color: '#E8DDD4',
+              color: 'var(--text-primary)',
               fontWeight: '400',
             }}
           >
@@ -250,7 +250,7 @@ export default function Hero() {
                   fontFamily: '"Cormorant Garamond", serif',
                   fontSize: '2.5rem',
                   fontWeight: '300',
-                  color: '#C8A96E',
+                  color: 'var(--gold)',
                   lineHeight: 1,
                 }}
               >
@@ -260,7 +260,7 @@ export default function Hero() {
                 style={{
                   fontFamily: '"DM Sans", sans-serif',
                   fontSize: '0.75rem',
-                  color: '#8A7F79',
+                  color: 'var(--text-muted)',
                   marginTop: '4px',
                   whiteSpace: 'pre-line',
                   textAlign: 'right',
@@ -290,7 +290,7 @@ export default function Hero() {
           style={{
             fontFamily: '"DM Sans", sans-serif',
             fontSize: '0.65rem',
-            color: '#8A7F79',
+            color: 'var(--text-muted)',
             textTransform: 'uppercase',
             letterSpacing: '0.12em',
             writingMode: 'vertical-rl',
@@ -302,7 +302,7 @@ export default function Hero() {
           style={{
             width: '1px',
             height: '48px',
-            background: 'linear-gradient(to bottom, #C8A96E, transparent)',
+            background: 'var(--scroll-line)',
           }}
         />
       </div>

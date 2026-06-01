@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import ThemeToggle from './ThemeToggle';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -26,9 +27,9 @@ export default function Navbar() {
         right: 0,
         zIndex: 1000,
         padding: scrolled ? '14px 40px' : '24px 40px',
-        backgroundColor: scrolled ? 'rgba(15, 13, 11, 0.85)' : 'transparent',
+        backgroundColor: scrolled ? 'var(--navbar-bg)' : 'transparent',
         backdropFilter: scrolled ? 'blur(20px)' : 'none',
-        borderBottom: scrolled ? '1px solid rgba(200, 169, 110, 0.12)' : 'none',
+        borderBottom: scrolled ? '1px solid var(--gold-a12)' : 'none',
         transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
         display: 'flex',
         alignItems: 'center',
@@ -42,7 +43,7 @@ export default function Navbar() {
           fontFamily: '"Cormorant Garamond", serif',
           fontSize: '1.75rem',
           fontWeight: '600',
-          color: '#C8A96E',
+          color: 'var(--gold)',
           textDecoration: 'none',
           letterSpacing: '0.02em',
         }}
@@ -60,38 +61,39 @@ export default function Navbar() {
               fontFamily: '"DM Sans", sans-serif',
               fontSize: '0.875rem',
               fontWeight: '400',
-              color: '#B8ADA5',
+              color: 'var(--text-body)',
               textDecoration: 'none',
               letterSpacing: '0.05em',
               textTransform: 'uppercase',
               transition: 'color 0.2s ease',
             }}
-            onMouseEnter={(e) => (e.target.style.color = '#E8DDD4')}
-            onMouseLeave={(e) => (e.target.style.color = '#B8ADA5')}
+            onMouseEnter={(e) => (e.target.style.color = 'var(--text-primary)')}
+            onMouseLeave={(e) => (e.target.style.color = 'var(--text-body)')}
           >
             {l.label}
           </a>
         ))}
+        <ThemeToggle />
         <a
           href="#agenda"
           style={{
             fontFamily: '"DM Sans", sans-serif',
             fontSize: '0.875rem',
             fontWeight: '500',
-            color: '#E8DDD4',
+            color: 'var(--text-on-dark-accent)',
             textDecoration: 'none',
-            backgroundColor: '#D4845A',
+            backgroundColor: 'var(--terracotta)',
             padding: '10px 24px',
             borderRadius: '100px',
             letterSpacing: '0.03em',
             transition: 'background-color 0.2s ease, transform 0.2s ease',
           }}
           onMouseEnter={(e) => {
-            e.target.style.backgroundColor = '#B86D45';
+            e.target.style.backgroundColor = 'var(--terracotta-dark)';
             e.target.style.transform = 'scale(1.03)';
           }}
           onMouseLeave={(e) => {
-            e.target.style.backgroundColor = '#D4845A';
+            e.target.style.backgroundColor = 'var(--terracotta)';
             e.target.style.transform = 'scale(1)';
           }}
         >
@@ -99,41 +101,43 @@ export default function Navbar() {
         </a>
       </div>
 
-      {/* Mobile burger */}
-      <button
-        className="flex md:hidden"
-        onClick={() => setMenuOpen(!menuOpen)}
-        style={{
-          background: 'none',
-          border: 'none',
-          cursor: 'pointer',
-          padding: '8px',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '5px',
-        }}
-        aria-label="Menú"
-      >
-        {[0, 1, 2].map((i) => (
-          <span
-            key={i}
-            style={{
-              display: 'block',
-              width: '24px',
-              height: '1.5px',
-              backgroundColor: '#C8A96E',
-              transition: 'transform 0.3s ease, opacity 0.3s ease',
-              transform:
-                menuOpen && i === 0
-                  ? 'rotate(45deg) translate(4.5px, 4.5px)'
-                  : menuOpen && i === 2
-                  ? 'rotate(-45deg) translate(4.5px, -4.5px)'
-                  : 'none',
-              opacity: menuOpen && i === 1 ? 0 : 1,
-            }}
-          />
-        ))}
-      </button>
+      {/* Mobile: theme toggle + burger */}
+      <div className="flex md:hidden" style={{ gap: '12px', alignItems: 'center' }}>
+        <ThemeToggle />
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
+          style={{
+            background: 'none',
+            border: 'none',
+            cursor: 'pointer',
+            padding: '8px',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '5px',
+          }}
+          aria-label="Menú"
+        >
+          {[0, 1, 2].map((i) => (
+            <span
+              key={i}
+              style={{
+                display: 'block',
+                width: '24px',
+                height: '1.5px',
+                backgroundColor: 'var(--gold)',
+                transition: 'transform 0.3s ease, opacity 0.3s ease',
+                transform:
+                  menuOpen && i === 0
+                    ? 'rotate(45deg) translate(4.5px, 4.5px)'
+                    : menuOpen && i === 2
+                    ? 'rotate(-45deg) translate(4.5px, -4.5px)'
+                    : 'none',
+                opacity: menuOpen && i === 1 ? 0 : 1,
+              }}
+            />
+          ))}
+        </button>
+      </div>
 
       {/* Mobile Menu */}
       {menuOpen && (
@@ -143,9 +147,9 @@ export default function Navbar() {
             top: '100%',
             left: 0,
             right: 0,
-            backgroundColor: 'rgba(15, 13, 11, 0.97)',
+            backgroundColor: 'var(--navbar-mobile-bg)',
             backdropFilter: 'blur(20px)',
-            borderBottom: '1px solid rgba(200, 169, 110, 0.15)',
+            borderBottom: '1px solid var(--gold-a15)',
             padding: '24px 40px',
             display: 'flex',
             flexDirection: 'column',
@@ -160,7 +164,7 @@ export default function Navbar() {
               style={{
                 fontFamily: '"Cormorant Garamond", serif',
                 fontSize: '1.5rem',
-                color: '#E8DDD4',
+                color: 'var(--text-primary)',
                 textDecoration: 'none',
               }}
             >
@@ -174,9 +178,9 @@ export default function Navbar() {
               fontFamily: '"DM Sans", sans-serif',
               fontSize: '0.875rem',
               fontWeight: '500',
-              color: '#E8DDD4',
+              color: 'var(--text-on-dark-accent)',
               textDecoration: 'none',
-              backgroundColor: '#D4845A',
+              backgroundColor: 'var(--terracotta)',
               padding: '12px 24px',
               borderRadius: '100px',
               textAlign: 'center',

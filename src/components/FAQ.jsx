@@ -29,7 +29,7 @@ export default function FAQ() {
   return (
     <section
       style={{
-        backgroundColor: '#1A1614',
+        backgroundColor: 'var(--bg-warm)',
         padding: '120px 0',
         position: 'relative',
       }}
@@ -41,7 +41,7 @@ export default function FAQ() {
           left: 0,
           right: 0,
           height: '1px',
-          background: 'linear-gradient(to right, transparent, rgba(200, 169, 110, 0.25), transparent)',
+          background: 'var(--divider-accent)',
         }}
       />
 
@@ -53,7 +53,7 @@ export default function FAQ() {
               fontFamily: '"DM Sans", sans-serif',
               fontSize: '0.7rem',
               fontWeight: '500',
-              color: '#D4845A',
+              color: 'var(--terracotta)',
               textTransform: 'uppercase',
               letterSpacing: '0.2em',
               display: 'block',
@@ -67,7 +67,7 @@ export default function FAQ() {
               fontFamily: '"Cormorant Garamond", serif',
               fontSize: 'clamp(2.5rem, 5vw, 4rem)',
               fontWeight: '300',
-              color: '#E8DDD4',
+              color: 'var(--text-primary)',
               lineHeight: '1.1',
             }}
           >
@@ -83,7 +83,7 @@ export default function FAQ() {
               className="section-reveal"
               style={{
                 transitionDelay: `${i * 60}ms`,
-                borderLeft: openIndex === i ? '2px solid #C8A96E' : '2px solid rgba(42, 37, 34, 0.8)',
+                borderLeft: openIndex === i ? '2px solid var(--gold)' : '2px solid var(--border)',
                 transition: 'border-color 0.3s ease',
                 paddingLeft: '20px',
                 marginBottom: '8px',
@@ -110,7 +110,7 @@ export default function FAQ() {
                     fontFamily: '"Cormorant Garamond", serif',
                     fontSize: '1.25rem',
                     fontWeight: '500',
-                    color: openIndex === i ? '#C8A96E' : '#E8DDD4',
+                    color: openIndex === i ? 'var(--gold)' : 'var(--text-primary)',
                     lineHeight: '1.3',
                     transition: 'color 0.3s ease',
                   }}
@@ -124,20 +124,20 @@ export default function FAQ() {
                     width: '28px',
                     height: '28px',
                     borderRadius: '50%',
-                    border: `1px solid ${openIndex === i ? 'rgba(200,169,110,0.5)' : 'rgba(42,37,34,1)'}`,
+                    border: `1px solid ${openIndex === i ? 'var(--gold-a50)' : 'var(--border-solid)'}`,
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     flexShrink: 0,
                     transition: 'all 0.3s ease',
-                    backgroundColor: openIndex === i ? 'rgba(200, 169, 110, 0.08)' : 'transparent',
+                    backgroundColor: openIndex === i ? 'var(--gold-a08)' : 'transparent',
                   }}
                 >
                   <span
                     style={{
                       fontFamily: '"DM Sans", sans-serif',
                       fontSize: '1rem',
-                      color: openIndex === i ? '#C8A96E' : '#8A7F79',
+                      color: openIndex === i ? 'var(--gold)' : 'var(--text-muted)',
                       lineHeight: 1,
                       transform: openIndex === i ? 'rotate(45deg)' : 'rotate(0)',
                       transition: 'transform 0.3s ease, color 0.3s ease',
@@ -161,7 +161,7 @@ export default function FAQ() {
                   style={{
                     fontFamily: '"DM Sans", sans-serif',
                     fontSize: '0.9rem',
-                    color: '#8A7F79',
+                    color: 'var(--text-muted)',
                     lineHeight: '1.8',
                     paddingBottom: '24px',
                   }}
@@ -174,7 +174,7 @@ export default function FAQ() {
               <div
                 style={{
                   height: '1px',
-                  background: 'rgba(42, 37, 34, 0.6)',
+                  background: 'var(--border-soft)',
                 }}
               />
             </div>

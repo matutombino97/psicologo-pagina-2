@@ -5,8 +5,8 @@ export default function Footer() {
   return (
     <footer
       style={{
-        backgroundColor: '#0A0A0A',
-        borderTop: '1px solid rgba(42, 37, 34, 0.8)',
+        backgroundColor: 'var(--bg-footer)',
+        borderTop: '1px solid var(--border)',
         padding: '80px 0 40px',
         position: 'relative',
       }}
@@ -29,7 +29,7 @@ export default function Footer() {
                 fontFamily: '"Cormorant Garamond", serif',
                 fontSize: '2rem',
                 fontWeight: '600',
-                color: '#C8A96E',
+                color: 'var(--gold)',
                 textDecoration: 'none',
                 display: 'block',
                 marginBottom: '16px',
@@ -41,7 +41,7 @@ export default function Footer() {
               style={{
                 fontFamily: '"DM Sans", sans-serif',
                 fontSize: '0.875rem',
-                color: '#8A7F79',
+                color: 'var(--text-muted)',
                 lineHeight: '1.7',
                 maxWidth: '260px',
               }}
@@ -84,22 +84,22 @@ export default function Footer() {
                     width: '38px',
                     height: '38px',
                     borderRadius: '50%',
-                    border: '1px solid rgba(42, 37, 34, 0.8)',
+                    border: '1px solid var(--border)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    color: '#8A7F79',
+                    color: 'var(--text-muted)',
                     textDecoration: 'none',
                     transition: 'all 0.2s ease',
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.borderColor = 'rgba(200, 169, 110, 0.4)';
-                    e.currentTarget.style.color = '#C8A96E';
-                    e.currentTarget.style.backgroundColor = 'rgba(200, 169, 110, 0.05)';
+                    e.currentTarget.style.borderColor = 'var(--gold-a40)';
+                    e.currentTarget.style.color = 'var(--gold)';
+                    e.currentTarget.style.backgroundColor = 'var(--gold-a05)';
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.borderColor = 'rgba(42, 37, 34, 0.8)';
-                    e.currentTarget.style.color = '#8A7F79';
+                    e.currentTarget.style.borderColor = 'var(--border)';
+                    e.currentTarget.style.color = 'var(--text-muted)';
                     e.currentTarget.style.backgroundColor = 'transparent';
                   }}
                 >
@@ -116,7 +116,7 @@ export default function Footer() {
                 fontFamily: '"DM Sans", sans-serif',
                 fontSize: '0.7rem',
                 fontWeight: '500',
-                color: '#C8A96E',
+                color: 'var(--gold)',
                 textTransform: 'uppercase',
                 letterSpacing: '0.15em',
                 marginBottom: '24px',
@@ -132,12 +132,12 @@ export default function Footer() {
                   style={{
                     fontFamily: '"DM Sans", sans-serif',
                     fontSize: '0.875rem',
-                    color: '#8A7F79',
+                    color: 'var(--text-muted)',
                     textDecoration: 'none',
                     transition: 'color 0.2s ease',
                   }}
-                  onMouseEnter={(e) => (e.target.style.color = '#E8DDD4')}
-                  onMouseLeave={(e) => (e.target.style.color = '#8A7F79')}
+                  onMouseEnter={(e) => (e.target.style.color = 'var(--text-primary)')}
+                  onMouseLeave={(e) => (e.target.style.color = 'var(--text-muted)')}
                 >
                   {link}
                 </a>
@@ -152,7 +152,7 @@ export default function Footer() {
                 fontFamily: '"DM Sans", sans-serif',
                 fontSize: '0.7rem',
                 fontWeight: '500',
-                color: '#C8A96E',
+                color: 'var(--gold)',
                 textTransform: 'uppercase',
                 letterSpacing: '0.15em',
                 marginBottom: '24px',
@@ -171,7 +171,7 @@ export default function Footer() {
                     style={{
                       fontFamily: '"DM Sans", sans-serif',
                       fontSize: '0.875rem',
-                      color: '#E8DDD4',
+                      color: 'var(--text-primary)',
                       marginBottom: '2px',
                     }}
                   >
@@ -181,7 +181,7 @@ export default function Footer() {
                     style={{
                       fontFamily: '"DM Sans", sans-serif',
                       fontSize: '0.75rem',
-                      color: '#8A7F79',
+                      color: 'var(--text-muted)',
                     }}
                   >
                     {item.sub}
@@ -196,7 +196,7 @@ export default function Footer() {
         <div
           style={{
             height: '1px',
-            background: 'rgba(42, 37, 34, 0.6)',
+            background: 'var(--border-soft)',
             marginBottom: '32px',
           }}
         />
@@ -215,7 +215,7 @@ export default function Footer() {
             style={{
               fontFamily: '"DM Sans", sans-serif',
               fontSize: '0.75rem',
-              color: '#8A7F79',
+              color: 'var(--text-muted)',
             }}
           >
             © {new Date().getFullYear()} MindSpace · Lic. María González · Mat. Prof. 12.345
@@ -224,7 +224,7 @@ export default function Footer() {
             style={{
               fontFamily: '"DM Sans", sans-serif',
               fontSize: '0.75rem',
-              color: '#8A7F79',
+              color: 'var(--text-muted)',
             }}
           >
             Todos los derechos reservados · Confidencialidad garantizada

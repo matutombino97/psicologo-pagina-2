@@ -22,10 +22,9 @@ const TIME_OPTIONS = [
 
 const STEP_LABELS = ['Motivo', 'Modalidad', 'Horario', 'Confirmación'];
 
-// Get today + 60 days as min/max for the date picker
 function getMinDate() {
   const d = new Date();
-  d.setDate(d.getDate() + 1); // at least tomorrow
+  d.setDate(d.getDate() + 1);
   return d.toISOString().split('T')[0];
 }
 function getMaxDate() {
@@ -45,16 +44,16 @@ function formatDateNatural(dateStr) {
 
 const inputStyle = {
   width: '100%',
-  backgroundColor: 'rgba(42, 37, 34, 0.6)',
-  border: '1px solid rgba(200, 169, 110, 0.15)',
+  backgroundColor: 'var(--input-bg)',
+  border: '1px solid var(--gold-a15)',
   borderRadius: '8px',
   padding: '12px 16px',
   fontFamily: '"DM Sans", sans-serif',
   fontSize: '0.9rem',
-  color: '#E8DDD4',
+  color: 'var(--text-primary)',
   outline: 'none',
   transition: 'border-color 0.2s ease',
-  colorScheme: 'dark',
+  colorScheme: 'var(--color-scheme)',
 };
 
 export default function SchedulingWidget() {
@@ -98,7 +97,7 @@ export default function SchedulingWidget() {
     <section
       id="agenda"
       style={{
-        backgroundColor: '#1A1614',
+        backgroundColor: 'var(--bg-agenda)',
         padding: '100px 0',
         position: 'relative',
         overflow: 'hidden',
@@ -112,7 +111,7 @@ export default function SchedulingWidget() {
           left: 0,
           right: 0,
           height: '1px',
-          background: 'linear-gradient(to right, transparent, rgba(200, 169, 110, 0.4), transparent)',
+          background: 'var(--divider-accent)',
         }}
       />
 
@@ -124,7 +123,7 @@ export default function SchedulingWidget() {
               fontFamily: '"DM Sans", sans-serif',
               fontSize: '0.7rem',
               fontWeight: '500',
-              color: '#D4845A',
+              color: 'var(--terracotta)',
               textTransform: 'uppercase',
               letterSpacing: '0.2em',
               display: 'block',
@@ -138,7 +137,7 @@ export default function SchedulingWidget() {
               fontFamily: '"Cormorant Garamond", serif',
               fontSize: 'clamp(2.5rem, 5vw, 4rem)',
               fontWeight: '300',
-              color: '#E8DDD4',
+              color: 'var(--text-agenda-heading)',
               lineHeight: '1.1',
             }}
           >
@@ -148,7 +147,7 @@ export default function SchedulingWidget() {
             style={{
               fontFamily: '"DM Sans", sans-serif',
               fontSize: '1rem',
-              color: '#8A7F79',
+              color: 'var(--text-agenda-body)',
               marginTop: '16px',
               maxWidth: '480px',
               margin: '16px auto 0',
@@ -164,8 +163,9 @@ export default function SchedulingWidget() {
         <div
           className="section-reveal"
           style={{
-            backgroundColor: '#1E1A18',
-            border: '1px solid rgba(200, 169, 110, 0.12)',
+            backgroundColor: 'var(--surface)',
+            border: '1px solid var(--gold-a12)',
+            boxShadow: 'var(--card-shadow, none)',
             borderRadius: '16px',
             overflow: 'hidden',
           }}
@@ -203,14 +203,14 @@ export default function SchedulingWidget() {
                       fontSize: '0.75rem',
                       fontWeight: '500',
                       backgroundColor:
-                        i + 1 < step ? '#C8A96E' : i + 1 === step ? '#D4845A' : 'rgba(42, 37, 34, 1)',
-                      color: i + 1 <= step ? '#0F0F0F' : '#8A7F79',
+                        i + 1 < step ? 'var(--gold)' : i + 1 === step ? 'var(--terracotta)' : 'var(--border-solid)',
+                      color: i + 1 <= step ? 'var(--text-on-dark-accent)' : 'var(--text-muted)',
                       border:
                         i + 1 === step
-                          ? '2px solid #D4845A'
+                          ? '2px solid var(--terracotta)'
                           : i + 1 < step
-                          ? '2px solid #C8A96E'
-                          : '2px solid rgba(200, 169, 110, 0.15)',
+                          ? '2px solid var(--gold)'
+                          : '2px solid var(--gold-a15)',
                       transition: 'all 0.3s ease',
                     }}
                   >
@@ -220,7 +220,7 @@ export default function SchedulingWidget() {
                     style={{
                       fontFamily: '"DM Sans", sans-serif',
                       fontSize: '0.65rem',
-                      color: i + 1 === step ? '#C8A96E' : '#8A7F79',
+                      color: i + 1 === step ? 'var(--gold)' : 'var(--text-muted)',
                       textTransform: 'uppercase',
                       letterSpacing: '0.08em',
                     }}
@@ -236,7 +236,7 @@ export default function SchedulingWidget() {
             <div
               style={{
                 height: '2px',
-                backgroundColor: 'rgba(42, 37, 34, 1)',
+                backgroundColor: 'var(--border-solid)',
                 borderRadius: '1px',
                 marginBottom: '40px',
                 position: 'relative',
@@ -249,7 +249,7 @@ export default function SchedulingWidget() {
                   top: 0,
                   height: '100%',
                   width: `${progress}%`,
-                  backgroundColor: '#C8A96E',
+                  backgroundColor: 'var(--gold)',
                   borderRadius: '1px',
                   transition: 'width 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
                 }}
@@ -268,7 +268,7 @@ export default function SchedulingWidget() {
                     fontFamily: '"Cormorant Garamond", serif',
                     fontSize: '1.75rem',
                     fontWeight: '400',
-                    color: '#E8DDD4',
+                    color: 'var(--text-primary)',
                     marginBottom: '8px',
                   }}
                 >
@@ -278,7 +278,7 @@ export default function SchedulingWidget() {
                   style={{
                     fontFamily: '"DM Sans", sans-serif',
                     fontSize: '0.9rem',
-                    color: '#8A7F79',
+                    color: 'var(--text-muted)',
                     marginBottom: '28px',
                   }}
                 >
@@ -300,26 +300,26 @@ export default function SchedulingWidget() {
                         padding: '20px',
                         backgroundColor:
                           selectedCategory === cat.id
-                            ? 'rgba(212, 132, 90, 0.1)'
-                            : 'rgba(42, 37, 34, 0.6)',
+                            ? 'var(--terra-a10)'
+                            : 'var(--input-bg)',
                         border:
                           selectedCategory === cat.id
-                            ? '1.5px solid rgba(212, 132, 90, 0.6)'
-                            : '1.5px solid rgba(42, 37, 34, 0.8)',
+                            ? '1.5px solid var(--terra-a60)'
+                            : '1.5px solid var(--border)',
                         borderRadius: '10px',
                         cursor: 'pointer',
                         transition: 'all 0.2s ease',
                       }}
                       onMouseEnter={(e) => {
                         if (selectedCategory !== cat.id) {
-                          e.currentTarget.style.border = '1.5px solid rgba(200, 169, 110, 0.3)';
-                          e.currentTarget.style.backgroundColor = 'rgba(42, 37, 34, 0.9)';
+                          e.currentTarget.style.border = '1.5px solid var(--gold-a30)';
+                          e.currentTarget.style.backgroundColor = 'var(--input-bg-hover)';
                         }
                       }}
                       onMouseLeave={(e) => {
                         if (selectedCategory !== cat.id) {
-                          e.currentTarget.style.border = '1.5px solid rgba(42, 37, 34, 0.8)';
-                          e.currentTarget.style.backgroundColor = 'rgba(42, 37, 34, 0.6)';
+                          e.currentTarget.style.border = '1.5px solid var(--border)';
+                          e.currentTarget.style.backgroundColor = 'var(--input-bg)';
                         }
                       }}
                     >
@@ -329,7 +329,7 @@ export default function SchedulingWidget() {
                           fontFamily: '"DM Sans", sans-serif',
                           fontSize: '0.875rem',
                           fontWeight: '500',
-                          color: selectedCategory === cat.id ? '#D4845A' : '#E8DDD4',
+                          color: selectedCategory === cat.id ? 'var(--terracotta)' : 'var(--text-primary)',
                           marginBottom: '4px',
                         }}
                       >
@@ -339,7 +339,7 @@ export default function SchedulingWidget() {
                         style={{
                           fontFamily: '"DM Sans", sans-serif',
                           fontSize: '0.75rem',
-                          color: '#8A7F79',
+                          color: 'var(--text-muted)',
                           lineHeight: '1.5',
                         }}
                       >
@@ -359,7 +359,7 @@ export default function SchedulingWidget() {
                     fontFamily: '"Cormorant Garamond", serif',
                     fontSize: '1.75rem',
                     fontWeight: '400',
-                    color: '#E8DDD4',
+                    color: 'var(--text-primary)',
                     marginBottom: '8px',
                   }}
                 >
@@ -369,7 +369,7 @@ export default function SchedulingWidget() {
                   style={{
                     fontFamily: '"DM Sans", sans-serif',
                     fontSize: '0.9rem',
-                    color: '#8A7F79',
+                    color: 'var(--text-muted)',
                     marginBottom: '28px',
                   }}
                 >
@@ -391,24 +391,24 @@ export default function SchedulingWidget() {
                         padding: '28px 20px',
                         backgroundColor:
                           selectedModality === mod.id
-                            ? 'rgba(212, 132, 90, 0.12)'
-                            : 'rgba(42, 37, 34, 0.6)',
+                            ? 'var(--terra-a12)'
+                            : 'var(--input-bg)',
                         border:
                           selectedModality === mod.id
-                            ? '1.5px solid rgba(212, 132, 90, 0.7)'
-                            : '1.5px solid rgba(42, 37, 34, 0.8)',
+                            ? '1.5px solid var(--terra-a70)'
+                            : '1.5px solid var(--border)',
                         borderRadius: '12px',
                         cursor: 'pointer',
                         transition: 'all 0.2s ease',
                       }}
                       onMouseEnter={(e) => {
                         if (selectedModality !== mod.id) {
-                          e.currentTarget.style.border = '1.5px solid rgba(200, 169, 110, 0.3)';
+                          e.currentTarget.style.border = '1.5px solid var(--gold-a30)';
                         }
                       }}
                       onMouseLeave={(e) => {
                         if (selectedModality !== mod.id) {
-                          e.currentTarget.style.border = '1.5px solid rgba(42, 37, 34, 0.8)';
+                          e.currentTarget.style.border = '1.5px solid var(--border)';
                         }
                       }}
                     >
@@ -417,7 +417,7 @@ export default function SchedulingWidget() {
                         style={{
                           fontFamily: '"Cormorant Garamond", serif',
                           fontSize: '1.25rem',
-                          color: selectedModality === mod.id ? '#D4845A' : '#E8DDD4',
+                          color: selectedModality === mod.id ? 'var(--terracotta)' : 'var(--text-primary)',
                           marginBottom: '6px',
                         }}
                       >
@@ -427,7 +427,7 @@ export default function SchedulingWidget() {
                         style={{
                           fontFamily: '"DM Sans", sans-serif',
                           fontSize: '0.75rem',
-                          color: '#8A7F79',
+                          color: 'var(--text-muted)',
                         }}
                       >
                         {mod.desc}
@@ -446,7 +446,7 @@ export default function SchedulingWidget() {
                     fontFamily: '"Cormorant Garamond", serif',
                     fontSize: '1.75rem',
                     fontWeight: '400',
-                    color: '#E8DDD4',
+                    color: 'var(--text-primary)',
                     marginBottom: '8px',
                   }}
                 >
@@ -456,7 +456,7 @@ export default function SchedulingWidget() {
                   style={{
                     fontFamily: '"DM Sans", sans-serif',
                     fontSize: '0.9rem',
-                    color: '#8A7F79',
+                    color: 'var(--text-muted)',
                     marginBottom: '32px',
                     lineHeight: '1.6',
                   }}
@@ -468,8 +468,8 @@ export default function SchedulingWidget() {
                 {/* Info banner */}
                 <div
                   style={{
-                    backgroundColor: 'rgba(200, 169, 110, 0.05)',
-                    border: '1px solid rgba(200, 169, 110, 0.15)',
+                    backgroundColor: 'var(--gold-a05)',
+                    border: '1px solid var(--gold-a15)',
                     borderRadius: '10px',
                     padding: '14px 18px',
                     marginBottom: '28px',
@@ -478,18 +478,18 @@ export default function SchedulingWidget() {
                     gap: '12px',
                   }}
                 >
-                  <span style={{ color: '#C8A96E', fontSize: '1rem', marginTop: '1px', flexShrink: 0 }}>💬</span>
+                  <span style={{ color: 'var(--gold)', fontSize: '1rem', marginTop: '1px', flexShrink: 0 }}>💬</span>
                   <p
                     style={{
                       fontFamily: '"DM Sans", sans-serif',
                       fontSize: '0.8rem',
-                      color: '#8A7F79',
+                      color: 'var(--text-muted)',
                       lineHeight: '1.6',
                       margin: 0,
                     }}
                   >
                     Tu preferencia se enviará por WhatsApp. La psicóloga confirmará el turno 
-                    dentro de las <strong style={{ color: '#C8A96E' }}>24 horas hábiles</strong>.
+                    dentro de las <strong style={{ color: 'var(--gold)' }}>24 horas hábiles</strong>.
                   </p>
                 </div>
 
@@ -508,7 +508,7 @@ export default function SchedulingWidget() {
                         display: 'block',
                         fontFamily: '"DM Sans", sans-serif',
                         fontSize: '0.7rem',
-                        color: '#C8A96E',
+                        color: 'var(--gold)',
                         textTransform: 'uppercase',
                         letterSpacing: '0.12em',
                         marginBottom: '10px',
@@ -527,15 +527,15 @@ export default function SchedulingWidget() {
                         ...inputStyle,
                         cursor: 'pointer',
                       }}
-                      onFocus={(e) => (e.target.style.borderColor = 'rgba(200, 169, 110, 0.5)')}
-                      onBlur={(e) => (e.target.style.borderColor = 'rgba(200, 169, 110, 0.15)')}
+                      onFocus={(e) => (e.target.style.borderColor = 'var(--gold-a50)')}
+                      onBlur={(e) => (e.target.style.borderColor = 'var(--gold-a15)')}
                     />
                     {selectedDate && (
                       <p
                         style={{
                           fontFamily: '"DM Sans", sans-serif',
                           fontSize: '0.8rem',
-                          color: '#C8A96E',
+                          color: 'var(--gold)',
                           marginTop: '8px',
                           fontStyle: 'italic',
                         }}
@@ -545,14 +545,14 @@ export default function SchedulingWidget() {
                     )}
                   </div>
 
-                  {/* Time picker — styled buttons grid */}
+                  {/* Time picker */}
                   <div>
                     <label
                       style={{
                         display: 'block',
                         fontFamily: '"DM Sans", sans-serif',
                         fontSize: '0.7rem',
-                        color: '#C8A96E',
+                        color: 'var(--gold)',
                         textTransform: 'uppercase',
                         letterSpacing: '0.12em',
                         marginBottom: '10px',
@@ -579,25 +579,25 @@ export default function SchedulingWidget() {
                             cursor: 'pointer',
                             backgroundColor:
                               selectedTime === t
-                                ? 'rgba(212, 132, 90, 0.2)'
-                                : 'rgba(42, 37, 34, 0.5)',
+                                ? 'var(--terra-a20)'
+                                : 'var(--input-bg)',
                             border:
                               selectedTime === t
-                                ? '1.5px solid #D4845A'
-                                : '1px solid rgba(200, 169, 110, 0.15)',
-                            color: selectedTime === t ? '#D4845A' : '#8A7F79',
+                                ? '1.5px solid var(--terracotta)'
+                                : '1px solid var(--gold-a15)',
+                            color: selectedTime === t ? 'var(--terracotta)' : 'var(--text-muted)',
                             transition: 'all 0.15s ease',
                           }}
                           onMouseEnter={(e) => {
                             if (selectedTime !== t) {
-                              e.currentTarget.style.borderColor = 'rgba(200, 169, 110, 0.35)';
-                              e.currentTarget.style.color = '#E8DDD4';
+                              e.currentTarget.style.borderColor = 'var(--gold-a30)';
+                              e.currentTarget.style.color = 'var(--text-primary)';
                             }
                           }}
                           onMouseLeave={(e) => {
                             if (selectedTime !== t) {
-                              e.currentTarget.style.borderColor = 'rgba(200, 169, 110, 0.15)';
-                              e.currentTarget.style.color = '#8A7F79';
+                              e.currentTarget.style.borderColor = 'var(--gold-a15)';
+                              e.currentTarget.style.color = 'var(--text-muted)';
                             }
                           }}
                         >
@@ -609,7 +609,7 @@ export default function SchedulingWidget() {
                       style={{
                         fontFamily: '"DM Sans", sans-serif',
                         fontSize: '0.72rem',
-                        color: '#8A7F79',
+                        color: 'var(--text-muted)',
                         marginTop: '10px',
                         fontStyle: 'italic',
                       }}
@@ -619,14 +619,14 @@ export default function SchedulingWidget() {
                   </div>
                 </div>
 
-                {/* Preview de lo que se enviará */}
+                {/* Preview */}
                 {selectedDate && (
                   <div
                     style={{
                       marginTop: '24px',
                       padding: '16px 20px',
-                      backgroundColor: 'rgba(37, 211, 102, 0.04)',
-                      border: '1px solid rgba(37, 211, 102, 0.12)',
+                      backgroundColor: 'var(--whatsapp-bg)',
+                      border: '1px solid var(--whatsapp-border)',
                       borderRadius: '10px',
                     }}
                   >
@@ -646,7 +646,7 @@ export default function SchedulingWidget() {
                       style={{
                         fontFamily: '"DM Sans", sans-serif',
                         fontSize: '0.82rem',
-                        color: '#8A7F79',
+                        color: 'var(--text-muted)',
                         lineHeight: '1.7',
                         whiteSpace: 'pre-line',
                       }}
@@ -666,7 +666,7 @@ export default function SchedulingWidget() {
                     fontFamily: '"Cormorant Garamond", serif',
                     fontSize: '1.75rem',
                     fontWeight: '400',
-                    color: '#E8DDD4',
+                    color: 'var(--text-primary)',
                     marginBottom: '8px',
                   }}
                 >
@@ -676,7 +676,7 @@ export default function SchedulingWidget() {
                   style={{
                     fontFamily: '"DM Sans", sans-serif',
                     fontSize: '0.9rem',
-                    color: '#8A7F79',
+                    color: 'var(--text-muted)',
                     marginBottom: '28px',
                   }}
                 >
@@ -686,8 +686,8 @@ export default function SchedulingWidget() {
                 {/* Summary chips */}
                 <div
                   style={{
-                    backgroundColor: 'rgba(200, 169, 110, 0.05)',
-                    border: '1px solid rgba(200, 169, 110, 0.12)',
+                    backgroundColor: 'var(--gold-a05)',
+                    border: '1px solid var(--gold-a12)',
                     borderRadius: '10px',
                     padding: '14px 18px',
                     marginBottom: '24px',
@@ -706,7 +706,7 @@ export default function SchedulingWidget() {
                         style={{
                           fontFamily: '"DM Sans", sans-serif',
                           fontSize: '0.65rem',
-                          color: '#C8A96E',
+                          color: 'var(--gold)',
                           textTransform: 'uppercase',
                           letterSpacing: '0.1em',
                           marginBottom: '3px',
@@ -718,7 +718,7 @@ export default function SchedulingWidget() {
                         style={{
                           fontFamily: '"DM Sans", sans-serif',
                           fontSize: '0.875rem',
-                          color: '#E8DDD4',
+                          color: 'var(--text-primary)',
                         }}
                       >
                         {item.value}
@@ -748,7 +748,7 @@ export default function SchedulingWidget() {
                             display: 'block',
                             fontFamily: '"DM Sans", sans-serif',
                             fontSize: '0.7rem',
-                            color: '#8A7F79',
+                            color: 'var(--text-muted)',
                             textTransform: 'uppercase',
                             letterSpacing: '0.08em',
                             marginBottom: '8px',
@@ -764,8 +764,8 @@ export default function SchedulingWidget() {
                           value={form[field.id]}
                           onChange={(e) => setForm({ ...form, [field.id]: e.target.value })}
                           style={inputStyle}
-                          onFocus={(e) => (e.target.style.borderColor = 'rgba(200, 169, 110, 0.5)')}
-                          onBlur={(e) => (e.target.style.borderColor = 'rgba(200, 169, 110, 0.15)')}
+                          onFocus={(e) => (e.target.style.borderColor = 'var(--gold-a50)')}
+                          onBlur={(e) => (e.target.style.borderColor = 'var(--gold-a15)')}
                         />
                       </div>
                     ))}
@@ -778,7 +778,7 @@ export default function SchedulingWidget() {
                         display: 'block',
                         fontFamily: '"DM Sans", sans-serif',
                         fontSize: '0.7rem',
-                        color: '#8A7F79',
+                        color: 'var(--text-muted)',
                         textTransform: 'uppercase',
                         letterSpacing: '0.08em',
                         marginBottom: '8px',
@@ -796,8 +796,8 @@ export default function SchedulingWidget() {
                         ...inputStyle,
                         resize: 'vertical',
                       }}
-                      onFocus={(e) => (e.target.style.borderColor = 'rgba(200, 169, 110, 0.5)')}
-                      onBlur={(e) => (e.target.style.borderColor = 'rgba(200, 169, 110, 0.15)')}
+                      onFocus={(e) => (e.target.style.borderColor = 'var(--gold-a50)')}
+                      onBlur={(e) => (e.target.style.borderColor = 'var(--gold-a15)')}
                     />
                   </div>
 
@@ -841,7 +841,7 @@ export default function SchedulingWidget() {
                     style={{
                       fontFamily: '"DM Sans", sans-serif',
                       fontSize: '0.72rem',
-                      color: '#8A7F79',
+                      color: 'var(--text-muted)',
                       textAlign: 'center',
                       marginTop: '12px',
                     }}
@@ -859,7 +859,7 @@ export default function SchedulingWidget() {
                   style={{
                     fontFamily: '"Cormorant Garamond", serif',
                     fontSize: '3rem',
-                    color: '#C8A96E',
+                    color: 'var(--gold)',
                     marginBottom: '16px',
                   }}
                 >
@@ -870,7 +870,7 @@ export default function SchedulingWidget() {
                     fontFamily: '"Cormorant Garamond", serif',
                     fontSize: '2rem',
                     fontWeight: '400',
-                    color: '#C8A96E',
+                    color: 'var(--gold)',
                     marginBottom: '12px',
                   }}
                 >
@@ -880,7 +880,7 @@ export default function SchedulingWidget() {
                   style={{
                     fontFamily: '"DM Sans", sans-serif',
                     fontSize: '1rem',
-                    color: '#8A7F79',
+                    color: 'var(--text-muted)',
                     maxWidth: '380px',
                     margin: '0 auto',
                     lineHeight: '1.7',
@@ -898,7 +898,7 @@ export default function SchedulingWidget() {
             <div
               style={{
                 padding: '24px 40px',
-                borderTop: '1px solid rgba(42, 37, 34, 0.8)',
+                borderTop: '1px solid var(--border)',
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'center',
@@ -910,7 +910,7 @@ export default function SchedulingWidget() {
                 style={{
                   fontFamily: '"DM Sans", sans-serif',
                   fontSize: '0.875rem',
-                  color: step === 1 ? '#3A3532' : '#8A7F79',
+                  color: step === 1 ? 'var(--text-disabled)' : 'var(--text-muted)',
                   backgroundColor: 'transparent',
                   border: 'none',
                   cursor: step === 1 ? 'not-allowed' : 'pointer',
@@ -919,8 +919,8 @@ export default function SchedulingWidget() {
                   gap: '6px',
                   transition: 'color 0.2s ease',
                 }}
-                onMouseEnter={(e) => { if (step > 1) e.currentTarget.style.color = '#E8DDD4'; }}
-                onMouseLeave={(e) => { if (step > 1) e.currentTarget.style.color = '#8A7F79'; }}
+                onMouseEnter={(e) => { if (step > 1) e.currentTarget.style.color = 'var(--text-primary)'; }}
+                onMouseLeave={(e) => { if (step > 1) e.currentTarget.style.color = 'var(--text-muted)'; }}
               >
                 ← Atrás
               </button>
@@ -933,8 +933,8 @@ export default function SchedulingWidget() {
                     fontFamily: '"DM Sans", sans-serif',
                     fontSize: '0.875rem',
                     fontWeight: '500',
-                    color: canNext() ? '#0F0F0F' : '#3A3532',
-                    backgroundColor: canNext() ? '#C8A96E' : 'rgba(42, 37, 34, 0.6)',
+                    color: canNext() ? 'var(--text-on-dark-accent)' : 'var(--text-disabled)',
+                    backgroundColor: canNext() ? 'var(--gold)' : 'var(--input-bg)',
                     border: 'none',
                     borderRadius: '8px',
                     padding: '12px 28px',
@@ -943,13 +943,13 @@ export default function SchedulingWidget() {
                   }}
                   onMouseEnter={(e) => {
                     if (canNext()) {
-                      e.currentTarget.style.backgroundColor = '#D4BB8A';
+                      e.currentTarget.style.backgroundColor = 'var(--gold-light)';
                       e.currentTarget.style.transform = 'scale(1.02)';
                     }
                   }}
                   onMouseLeave={(e) => {
                     if (canNext()) {
-                      e.currentTarget.style.backgroundColor = '#C8A96E';
+                      e.currentTarget.style.backgroundColor = 'var(--gold)';
                       e.currentTarget.style.transform = 'scale(1)';
                     }
                   }}

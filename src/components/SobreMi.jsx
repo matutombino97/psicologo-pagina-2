@@ -9,7 +9,7 @@ export default function SobreMi() {
     <section
       id="sobre-mi"
       style={{
-        backgroundColor: '#0F0F0F',
+        backgroundColor: 'var(--bg-primary)',
         padding: '120px 0',
         position: 'relative',
         overflow: 'hidden',
@@ -23,7 +23,7 @@ export default function SobreMi() {
           left: 0,
           right: 0,
           height: '1px',
-          background: 'linear-gradient(to right, transparent, rgba(200, 169, 110, 0.25), transparent)',
+          background: 'var(--divider-accent)',
         }}
       />
 
@@ -37,7 +37,7 @@ export default function SobreMi() {
           fontFamily: '"Cormorant Garamond", serif',
           fontSize: 'clamp(120px, 20vw, 300px)',
           fontWeight: '700',
-          color: 'rgba(200, 169, 110, 0.03)',
+          color: 'var(--gold-a03)',
           lineHeight: 1,
           userSelect: 'none',
           pointerEvents: 'none',
@@ -70,10 +70,10 @@ export default function SobreMi() {
             style={{
               position: 'relative',
               aspectRatio: '3/4',
-              backgroundColor: '#1E1A18',
+              backgroundColor: 'var(--surface)',
               borderRadius: '4px',
               overflow: 'hidden',
-              border: '1px solid rgba(200, 169, 110, 0.12)',
+              border: '1px solid var(--gold-a12)',
             }}
           >
             {/* Warm gradient placeholder photo */}
@@ -82,9 +82,9 @@ export default function SobreMi() {
                 position: 'absolute',
                 inset: 0,
                 background: `
-                  radial-gradient(ellipse 80% 60% at 50% 30%, rgba(200, 169, 110, 0.12) 0%, transparent 60%),
-                  radial-gradient(ellipse 60% 80% at 30% 80%, rgba(212, 132, 90, 0.08) 0%, transparent 50%),
-                  linear-gradient(180deg, #2A2018 0%, #1A1614 50%, #0F0F0F 100%)
+                  radial-gradient(ellipse 80% 60% at 50% 30%, var(--gold-a12) 0%, transparent 60%),
+                  radial-gradient(ellipse 60% 80% at 30% 80%, var(--terra-a08) 0%, transparent 50%),
+                  var(--photo-gradient)
                 `,
               }}
             />
@@ -98,7 +98,7 @@ export default function SobreMi() {
                 transform: 'translateX(-50%)',
                 width: '60%',
                 height: '85%',
-                background: 'linear-gradient(to top, rgba(30,26,24,0.6) 0%, rgba(40,32,26,0.4) 60%, transparent 100%)',
+                background: 'var(--photo-silhouette)',
                 borderRadius: '100px 100px 0 0',
               }}
             />
@@ -119,7 +119,7 @@ export default function SobreMi() {
                   fontFamily: '"Cormorant Garamond", serif',
                   fontSize: '5rem',
                   fontWeight: '300',
-                  color: 'rgba(200, 169, 110, 0.2)',
+                  color: 'var(--gold-a20)',
                   lineHeight: 1,
                 }}
               >
@@ -133,8 +133,8 @@ export default function SobreMi() {
                 position: 'absolute',
                 bottom: '24px',
                 right: '-24px',
-                backgroundColor: '#1E1A18',
-                border: '1px solid rgba(200, 169, 110, 0.2)',
+                backgroundColor: 'var(--surface)',
+                border: '1px solid var(--gold-a20)',
                 borderRadius: '8px',
                 padding: '16px 20px',
                 backdropFilter: 'blur(12px)',
@@ -145,7 +145,7 @@ export default function SobreMi() {
                   fontFamily: '"Cormorant Garamond", serif',
                   fontSize: '1.5rem',
                   fontWeight: '600',
-                  color: '#C8A96E',
+                  color: 'var(--gold)',
                   lineHeight: 1,
                 }}
               >
@@ -155,7 +155,7 @@ export default function SobreMi() {
                 style={{
                   fontFamily: '"DM Sans", sans-serif',
                   fontSize: '0.7rem',
-                  color: '#8A7F79',
+                  color: 'var(--text-muted)',
                   marginTop: '4px',
                   textTransform: 'uppercase',
                   letterSpacing: '0.08em',
@@ -167,7 +167,7 @@ export default function SobreMi() {
                 style={{
                   fontFamily: '"DM Sans", sans-serif',
                   fontSize: '0.65rem',
-                  color: '#C8A96E',
+                  color: 'var(--gold)',
                   marginTop: '8px',
                 }}
               >
@@ -183,7 +183,7 @@ export default function SobreMi() {
                 left: 0,
                 right: 0,
                 height: '3px',
-                background: 'linear-gradient(to right, #C8A96E, transparent)',
+                background: 'var(--top-accent-line)',
               }}
             />
           </div>
@@ -194,7 +194,7 @@ export default function SobreMi() {
               position: 'absolute',
               top: '40px',
               left: '-20px',
-              backgroundColor: '#D4845A',
+              backgroundColor: 'var(--terracotta)',
               borderRadius: '8px',
               padding: '16px',
               textAlign: 'center',
@@ -205,7 +205,7 @@ export default function SobreMi() {
                 fontFamily: '"Cormorant Garamond", serif',
                 fontSize: '2rem',
                 fontWeight: '600',
-                color: '#0F0F0F',
+                color: 'var(--text-on-dark-accent)',
                 lineHeight: 1,
               }}
             >
@@ -215,7 +215,7 @@ export default function SobreMi() {
               style={{
                 fontFamily: '"DM Sans", sans-serif',
                 fontSize: '0.65rem',
-                color: 'rgba(15,15,15,0.7)',
+                color: 'var(--text-on-terra)',
                 marginTop: '4px',
                 textTransform: 'uppercase',
                 letterSpacing: '0.05em',
@@ -242,7 +242,7 @@ export default function SobreMi() {
                 display: 'inline-block',
                 width: '24px',
                 height: '1px',
-                backgroundColor: '#C8A96E',
+                backgroundColor: 'var(--gold)',
               }}
             />
             <span
@@ -250,7 +250,7 @@ export default function SobreMi() {
                 fontFamily: '"DM Sans", sans-serif',
                 fontSize: '0.7rem',
                 fontWeight: '500',
-                color: '#C8A96E',
+                color: 'var(--gold)',
                 textTransform: 'uppercase',
                 letterSpacing: '0.15em',
               }}
@@ -264,7 +264,7 @@ export default function SobreMi() {
               fontFamily: '"Cormorant Garamond", serif',
               fontSize: 'clamp(2.5rem, 4vw, 3.5rem)',
               fontWeight: '300',
-              color: '#E8DDD4',
+              color: 'var(--text-primary)',
               lineHeight: '1.1',
               marginBottom: '8px',
             }}
@@ -275,7 +275,7 @@ export default function SobreMi() {
             style={{
               fontFamily: '"DM Sans", sans-serif',
               fontSize: '0.9rem',
-              color: '#8A7F79',
+              color: 'var(--text-muted)',
               marginBottom: '32px',
               letterSpacing: '0.05em',
               textTransform: 'uppercase',
@@ -300,9 +300,9 @@ export default function SobreMi() {
                   fontFamily: '"DM Sans", sans-serif',
                   fontSize: '0.75rem',
                   fontWeight: '400',
-                  color: '#C8A96E',
-                  backgroundColor: 'rgba(200, 169, 110, 0.08)',
-                  border: '1px solid rgba(200, 169, 110, 0.25)',
+                  color: 'var(--gold)',
+                  backgroundColor: 'var(--gold-a08)',
+                  border: '1px solid var(--gold-a25)',
                   borderRadius: '100px',
                   padding: '6px 14px',
                 }}
@@ -317,7 +317,7 @@ export default function SobreMi() {
             style={{
               fontFamily: '"DM Sans", sans-serif',
               fontSize: '1rem',
-              color: '#B8ADA5',
+              color: 'var(--text-body)',
               lineHeight: '1.9',
               marginBottom: '24px',
             }}
@@ -331,7 +331,7 @@ export default function SobreMi() {
             style={{
               fontFamily: '"DM Sans", sans-serif',
               fontSize: '1rem',
-              color: '#B8ADA5',
+              color: 'var(--text-body)',
               lineHeight: '1.9',
             }}
           >
@@ -343,7 +343,7 @@ export default function SobreMi() {
           <div
             style={{
               height: '1px',
-              background: 'linear-gradient(to right, rgba(200, 169, 110, 0.2), transparent)',
+              background: 'var(--divider-gold-to-right)',
               margin: '36px 0',
             }}
           />
@@ -361,7 +361,7 @@ export default function SobreMi() {
                     fontFamily: '"Cormorant Garamond", serif',
                     fontSize: '1.5rem',
                     fontWeight: '600',
-                    color: '#C8A96E',
+                    color: 'var(--gold)',
                   }}
                 >
                   {s.num}
@@ -370,7 +370,7 @@ export default function SobreMi() {
                   style={{
                     fontFamily: '"DM Sans", sans-serif',
                     fontSize: '0.75rem',
-                    color: '#8A7F79',
+                    color: 'var(--text-muted)',
                     marginTop: '2px',
                   }}
                 >

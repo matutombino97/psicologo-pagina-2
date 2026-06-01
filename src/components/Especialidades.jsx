@@ -42,7 +42,7 @@ export default function Especialidades() {
     <section
       id="especialidades"
       style={{
-        backgroundColor: '#1A1614',
+        backgroundColor: 'var(--bg-warm)',
         padding: '120px 0',
         position: 'relative',
         overflow: 'hidden',
@@ -55,7 +55,7 @@ export default function Especialidades() {
           left: 0,
           right: 0,
           height: '1px',
-          background: 'linear-gradient(to right, transparent, rgba(200, 169, 110, 0.25), transparent)',
+          background: 'var(--divider-accent)',
         }}
       />
 
@@ -68,7 +68,7 @@ export default function Especialidades() {
           fontFamily: '"Cormorant Garamond", serif',
           fontSize: 'clamp(150px, 22vw, 380px)',
           fontWeight: '700',
-          color: 'rgba(200, 169, 110, 0.025)',
+          color: 'var(--gold-a03)',
           lineHeight: 1,
           userSelect: 'none',
           pointerEvents: 'none',
@@ -96,7 +96,7 @@ export default function Especialidades() {
                 fontFamily: '"DM Sans", sans-serif',
                 fontSize: '0.7rem',
                 fontWeight: '500',
-                color: '#D4845A',
+                color: 'var(--terracotta)',
                 textTransform: 'uppercase',
                 letterSpacing: '0.2em',
                 display: 'block',
@@ -110,7 +110,7 @@ export default function Especialidades() {
                 fontFamily: '"Cormorant Garamond", serif',
                 fontSize: 'clamp(2.5rem, 5vw, 4rem)',
                 fontWeight: '300',
-                color: '#E8DDD4',
+                color: 'var(--text-primary)',
                 lineHeight: '1.1',
               }}
             >
@@ -121,7 +121,7 @@ export default function Especialidades() {
             style={{
               fontFamily: '"DM Sans", sans-serif',
               fontSize: '0.95rem',
-              color: '#8A7F79',
+              color: 'var(--text-muted)',
               maxWidth: '360px',
               lineHeight: '1.8',
             }}
@@ -145,11 +145,12 @@ export default function Especialidades() {
               className="section-reveal card-hover"
               style={{
                 transitionDelay: `${i * 80}ms`,
-                backgroundColor: '#1E1A18',
+                backgroundColor: 'var(--surface)',
                 border:
                   hoveredId === spec.id
-                    ? '1px solid rgba(200, 169, 110, 0.3)'
-                    : '1px solid rgba(42, 37, 34, 0.8)',
+                    ? '1px solid var(--gold-a30)'
+                    : '1px solid var(--border)',
+                boxShadow: 'var(--card-shadow, none)',
                 borderRadius: '12px',
                 padding: '36px 28px',
                 position: 'relative',
@@ -167,7 +168,7 @@ export default function Especialidades() {
                   left: 0,
                   right: 0,
                   height: '2px',
-                  backgroundColor: '#C8A96E',
+                  backgroundColor: 'var(--gold)',
                   transform: hoveredId === spec.id ? 'scaleX(1)' : 'scaleX(0)',
                   transformOrigin: 'left',
                   transition: 'transform 0.35s cubic-bezier(0.4, 0, 0.2, 1)',
@@ -179,7 +180,7 @@ export default function Especialidades() {
                 style={{
                   fontFamily: '"Cormorant Garamond", serif',
                   fontSize: '2rem',
-                  color: hoveredId === spec.id ? '#C8A96E' : '#4A4540',
+                  color: hoveredId === spec.id ? 'var(--gold)' : 'var(--text-dim)',
                   marginBottom: '20px',
                   transition: 'color 0.3s ease',
                 }}
@@ -193,7 +194,7 @@ export default function Especialidades() {
                   fontFamily: '"Cormorant Garamond", serif',
                   fontSize: '1.5rem',
                   fontWeight: '500',
-                  color: '#E8DDD4',
+                  color: 'var(--text-primary)',
                   marginBottom: '12px',
                   lineHeight: '1.2',
                 }}
@@ -206,7 +207,7 @@ export default function Especialidades() {
                 style={{
                   fontFamily: '"DM Sans", sans-serif',
                   fontSize: '0.875rem',
-                  color: '#8A7F79',
+                  color: 'var(--text-muted)',
                   lineHeight: '1.7',
                   marginBottom: '24px',
                 }}
@@ -222,8 +223,8 @@ export default function Especialidades() {
                     style={{
                       fontFamily: '"DM Sans", sans-serif',
                       fontSize: '0.65rem',
-                      color: '#8A7F79',
-                      backgroundColor: 'rgba(42, 37, 34, 0.8)',
+                      color: 'var(--text-muted)',
+                      backgroundColor: 'var(--border)',
                       borderRadius: '4px',
                       padding: '3px 10px',
                       letterSpacing: '0.05em',
@@ -241,7 +242,7 @@ export default function Especialidades() {
                   fontFamily: '"DM Sans", sans-serif',
                   fontSize: '0.8rem',
                   fontWeight: '500',
-                  color: hoveredId === spec.id ? '#C8A96E' : '#8A7F79',
+                  color: hoveredId === spec.id ? 'var(--gold)' : 'var(--text-muted)',
                   textDecoration: 'none',
                   display: 'flex',
                   alignItems: 'center',
