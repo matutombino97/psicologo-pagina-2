@@ -5,16 +5,16 @@ const ThemeContext = createContext();
 export function ThemeProvider({ children }) {
   const [theme, setTheme] = useState(() => {
     try {
-      return localStorage.getItem('mindspace-theme') || 'dark';
+      return localStorage.getItem('raizterapia-theme') || 'light';
     } catch {
-      return 'dark';
+      return 'light';
     }
   });
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
     try {
-      localStorage.setItem('mindspace-theme', theme);
+      localStorage.setItem('raizterapia-theme', theme);
     } catch {
       // ignore
     }
