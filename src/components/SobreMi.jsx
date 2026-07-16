@@ -85,11 +85,12 @@ export default function SobreMi() {
             >
               <div
                 style={{
-                  fontFamily: '"Cormorant Garamond", serif',
-                  fontSize: '1.5rem',
-                  fontWeight: '600',
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '1.25rem',
+                  fontWeight: '700',
                   color: 'var(--gold)',
                   lineHeight: 1,
+                  letterSpacing: '-0.02em',
                 }}
               >
                 Lic.
@@ -146,11 +147,12 @@ export default function SobreMi() {
           >
             <div
               style={{
-                fontFamily: '"Cormorant Garamond", serif',
-                fontSize: '2rem',
-                fontWeight: '600',
+                fontFamily: 'var(--font-display)',
+                fontSize: '1.75rem',
+                fontWeight: '700',
                 color: 'var(--text-on-dark-accent)',
                 lineHeight: 1,
+                letterSpacing: '-0.02em',
               }}
             >
               8+
@@ -205,12 +207,13 @@ export default function SobreMi() {
 
           <h2
             style={{
-              fontFamily: '"Cormorant Garamond", serif',
+              fontFamily: 'var(--font-display)',
               fontSize: 'clamp(2.5rem, 4vw, 3.5rem)',
-              fontWeight: '300',
+              fontWeight: '700',
               color: 'var(--text-primary)',
               lineHeight: '1.1',
               marginBottom: '8px',
+              letterSpacing: '-0.02em',
             }}
           >
             María González
@@ -302,10 +305,11 @@ export default function SobreMi() {
               <div key={s.num}>
                 <div
                   style={{
-                    fontFamily: '"Cormorant Garamond", serif',
+                    fontFamily: 'var(--font-display)',
                     fontSize: '1.5rem',
-                    fontWeight: '600',
+                    fontWeight: '700',
                     color: 'var(--gold)',
+                    letterSpacing: '-0.02em',
                   }}
                 >
                   {s.num}

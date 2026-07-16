@@ -139,11 +139,12 @@ export default function SchedulingWidget() {
           </span>
           <h2
             style={{
-              fontFamily: '"Cormorant Garamond", serif',
+              fontFamily: 'var(--font-display)',
               fontSize: 'clamp(2.5rem, 5vw, 4rem)',
-              fontWeight: '300',
+              fontWeight: '700',
               color: 'var(--text-agenda-heading)',
               lineHeight: '1.1',
+              letterSpacing: '-0.02em',
             }}
           >
             Reservá tu primera consulta
@@ -181,70 +182,43 @@ export default function SchedulingWidget() {
               style={{
                 display: 'flex',
                 justifyContent: 'space-between',
-                alignItems: 'center',
-                marginBottom: '12px',
+                alignItems: 'baseline',
+                marginBottom: '16px',
               }}
             >
-              {STEP_LABELS.map((label, i) => (
-                <div
-                  key={label}
-                  style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    gap: '6px',
-                    flex: 1,
-                  }}
-                >
-                  <div
-                    style={{
-                      width: '28px',
-                      height: '28px',
-                      borderRadius: '50%',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      fontFamily: '"DM Sans", sans-serif',
-                      fontSize: '0.75rem',
-                      fontWeight: '500',
-                      backgroundColor:
-                        i + 1 < step ? 'var(--gold)' : i + 1 === step ? 'var(--terracotta)' : 'var(--border-solid)',
-                      color: i + 1 <= step ? 'var(--text-on-dark-accent)' : 'var(--text-muted)',
-                      border:
-                        i + 1 === step
-                          ? '2px solid var(--terracotta)'
-                          : i + 1 < step
-                          ? '2px solid var(--gold)'
-                          : '2px solid var(--gold-a15)',
-                      transition: 'all 0.3s ease',
-                    }}
-                  >
-                    {i + 1 < step ? '✓' : i + 1}
-                  </div>
-                  <span
-                    style={{
-                      fontFamily: '"DM Sans", sans-serif',
-                      fontSize: '0.65rem',
-                      color: i + 1 === step ? 'var(--gold)' : 'var(--text-muted)',
-                      textTransform: 'uppercase',
-                      letterSpacing: '0.08em',
-                    }}
-                    className="hidden sm:block"
-                  >
-                    {label}
-                  </span>
-                </div>
-              ))}
+              <span
+                style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '0.75rem',
+                  fontWeight: '700',
+                  color: 'var(--gold)',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.1em',
+                }}
+              >
+                Paso {step} de 4
+              </span>
+              <span
+                style={{
+                  fontFamily: '"DM Sans", sans-serif',
+                  fontSize: '0.875rem',
+                  fontWeight: '500',
+                  color: 'var(--text-muted)',
+                }}
+              >
+                {STEP_LABELS[step - 1]}
+              </span>
             </div>
 
             {/* Progress track */}
             <div
               style={{
-                height: '2px',
-                backgroundColor: 'var(--border-solid)',
-                borderRadius: '1px',
+                height: '4px',
+                backgroundColor: 'var(--border-soft)',
+                borderRadius: '2px',
                 marginBottom: '40px',
                 position: 'relative',
+                overflow: 'hidden',
               }}
             >
               <div
@@ -252,11 +226,11 @@ export default function SchedulingWidget() {
                   position: 'absolute',
                   left: 0,
                   top: 0,
-                  height: '100%',
-                  width: `${progress}%`,
+                  bottom: 0,
+                  width: `${(step / 4) * 100}%`,
                   backgroundColor: 'var(--gold)',
-                  borderRadius: '1px',
-                  transition: 'width 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+                  borderRadius: '2px',
+                  transition: 'width 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
                 }}
               />
             </div>
@@ -270,11 +244,12 @@ export default function SchedulingWidget() {
               <div>
                 <h3
                   style={{
-                    fontFamily: '"Cormorant Garamond", serif',
-                    fontSize: '1.75rem',
-                    fontWeight: '400',
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '1.5rem',
+                    fontWeight: '700',
                     color: 'var(--text-primary)',
                     marginBottom: '8px',
+                    letterSpacing: '-0.01em',
                   }}
                 >
                   ¿Qué estás atravesando?
@@ -363,11 +338,12 @@ export default function SchedulingWidget() {
               <div>
                 <h3
                   style={{
-                    fontFamily: '"Cormorant Garamond", serif',
-                    fontSize: '1.75rem',
-                    fontWeight: '400',
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '1.5rem',
+                    fontWeight: '700',
                     color: 'var(--text-primary)',
                     marginBottom: '8px',
+                    letterSpacing: '-0.01em',
                   }}
                 >
                   ¿Cómo preferís atenderte?
@@ -424,8 +400,9 @@ export default function SchedulingWidget() {
                       </div>
                       <div
                         style={{
-                          fontFamily: '"Cormorant Garamond", serif',
-                          fontSize: '1.25rem',
+                          fontFamily: 'var(--font-display)',
+                          fontSize: '1.1rem',
+                          fontWeight: '600',
                           color: selectedModality === mod.id ? 'var(--terracotta)' : 'var(--text-primary)',
                           marginBottom: '6px',
                         }}
@@ -452,11 +429,12 @@ export default function SchedulingWidget() {
               <div>
                 <h3
                   style={{
-                    fontFamily: '"Cormorant Garamond", serif',
-                    fontSize: '1.75rem',
-                    fontWeight: '400',
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '1.5rem',
+                    fontWeight: '700',
                     color: 'var(--text-primary)',
                     marginBottom: '8px',
+                    letterSpacing: '-0.01em',
                   }}
                 >
                   ¿Cuándo te viene bien?
@@ -672,11 +650,12 @@ export default function SchedulingWidget() {
               <div>
                 <h3
                   style={{
-                    fontFamily: '"Cormorant Garamond", serif',
-                    fontSize: '1.75rem',
-                    fontWeight: '400',
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '1.5rem',
+                    fontWeight: '700',
                     color: 'var(--text-primary)',
                     marginBottom: '8px',
+                    letterSpacing: '-0.01em',
                   }}
                 >
                   Casi listo
@@ -876,13 +855,14 @@ export default function SchedulingWidget() {
                     <path d="M8 12l3 3 5-5" />
                   </svg>
                 </div>
-                <h3
+                 <h3
                   style={{
-                    fontFamily: '"Cormorant Garamond", serif',
-                    fontSize: '2rem',
-                    fontWeight: '400',
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '1.75rem',
+                    fontWeight: '700',
                     color: 'var(--gold)',
                     marginBottom: '12px',
+                    letterSpacing: '-0.01em',
                   }}
                 >
                   ¡Mensaje enviado!

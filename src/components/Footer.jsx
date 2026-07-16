@@ -26,13 +26,14 @@ export default function Footer() {
             <a
               href="#inicio"
               style={{
-                fontFamily: '"Cormorant Garamond", serif',
-                fontSize: '2rem',
-                fontWeight: '600',
+                fontFamily: 'var(--font-display)',
+                fontSize: '1.75rem',
+                fontWeight: '700',
                 color: 'var(--gold)',
                 textDecoration: 'none',
                 display: 'block',
                 marginBottom: '16px',
+                letterSpacing: '-0.03em',
               }}
             >
               Raíz Terapia

@@ -198,15 +198,15 @@ export default function Testimonios() {
             </span>
             <h2
               style={{
-                fontFamily: '"Cormorant Garamond", serif',
+                fontFamily: 'var(--font-display)',
                 fontSize: 'clamp(2.5rem, 5vw, 4rem)',
-                fontWeight: '300',
+                fontWeight: '700',
                 color: 'var(--text-primary)',
                 lineHeight: '1.1',
+                letterSpacing: '-0.02em',
               }}
             >
-              Voces de quienes{' '}
-              <span style={{ fontStyle: 'italic', color: 'var(--gold)' }}>confían</span>
+              Voces de quienes confían
             </h2>
           </div>
 
@@ -286,9 +286,9 @@ export default function Testimonios() {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    fontFamily: '"Cormorant Garamond", serif',
+                    fontFamily: 'var(--font-display)',
                     fontSize: '0.85rem',
-                    fontWeight: '600',
+                    fontWeight: '700',
                     color: 'var(--gold)',
                     flexShrink: 0,
                   }}

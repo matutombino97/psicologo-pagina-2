@@ -147,9 +147,9 @@ export default function Especialidades() {
             </span>
             <h2
               style={{
-                fontFamily: '"Cormorant Garamond", serif',
+                fontFamily: 'var(--font-display)',
                 fontSize: 'clamp(2.5rem, 5vw, 4rem)',
-                fontWeight: '300',
+                fontWeight: '700',
                 color: 'var(--text-primary)',
                 lineHeight: '1.1',
               }}
@@ -225,9 +225,9 @@ export default function Especialidades() {
               {/* Title */}
               <h3
                 style={{
-                  fontFamily: '"Cormorant Garamond", serif',
+                  fontFamily: 'var(--font-display)',
                   fontSize: '1.5rem',
-                  fontWeight: '500',
+                  fontWeight: '600',
                   color: 'var(--text-primary)',
                   marginBottom: '12px',
                   lineHeight: '1.2',

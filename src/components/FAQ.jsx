@@ -89,9 +89,9 @@ export default function FAQ() {
           </span>
           <h2
             style={{
-              fontFamily: '"Cormorant Garamond", serif',
+              fontFamily: 'var(--font-display)',
               fontSize: 'clamp(2.5rem, 5vw, 4rem)',
-              fontWeight: '300',
+              fontWeight: '700',
               color: 'var(--text-primary)',
               lineHeight: '1.1',
             }}
@@ -132,9 +132,9 @@ export default function FAQ() {
               >
                 <span
                   style={{
-                    fontFamily: '"Cormorant Garamond", serif',
-                    fontSize: '1.25rem',
-                    fontWeight: '500',
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '1.2rem',
+                    fontWeight: '600',
                     color: openIndex === i ? 'var(--gold)' : 'var(--text-primary)',
                     lineHeight: '1.3',
                     transition: 'color 0.3s ease',

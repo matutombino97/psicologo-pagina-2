@@ -40,12 +40,12 @@ export default function Navbar() {
       <a
         href="#inicio"
         style={{
-          fontFamily: '"Cormorant Garamond", serif',
-          fontSize: '1.75rem',
-          fontWeight: '600',
+          fontFamily: 'var(--font-display)',
+          fontSize: '1.5rem',
+          fontWeight: '700',
           color: 'var(--gold)',
           textDecoration: 'none',
-          letterSpacing: '0.02em',
+          letterSpacing: '-0.03em',
         }}
       >
         Raíz Terapia
@@ -162,8 +162,9 @@ export default function Navbar() {
               href={l.href}
               onClick={() => setMenuOpen(false)}
               style={{
-                fontFamily: '"Cormorant Garamond", serif',
+                fontFamily: 'var(--font-display)',
                 fontSize: '1.5rem',
+                fontWeight: '600',
                 color: 'var(--text-primary)',
                 textDecoration: 'none',
               }}
