@@ -1,5 +1,29 @@
 import { useState } from 'react';
 
+function IconChevron({ isOpen }) {
+  return (
+    <svg
+      width="16" height="16" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"
+      style={{
+        transition: 'transform 0.35s cubic-bezier(0.4, 0, 0.2, 1)',
+        transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+        flexShrink: 0,
+      }}
+    >
+      <path d="M6 9l6 6 6-6" />
+    </svg>
+  );
+}
+
+function IconSectionTag() {
+  return (
+    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+      <path d="M1 6h10M6 1l5 5-5 5" />
+    </svg>
+  );
+}
+
 const FAQS = [
   {
     q: '¿Cómo es la primera sesión?',
@@ -45,7 +69,7 @@ export default function FAQ() {
         }}
       />
 
-      <div style={{ maxWidth: '800px', margin: '0 auto', padding: '0 40px' }}>
+      <div style={{ maxWidth: '800px', margin: '0 auto' }} className="faq-container">
         {/* Header */}
         <div className="section-reveal" style={{ marginBottom: '64px' }}>
           <span
@@ -60,7 +84,8 @@ export default function FAQ() {
               marginBottom: '16px',
             }}
           >
-            ✦ Preguntas frecuentes
+              <IconSectionTag />
+              Preguntas frecuentes
           </span>
           <h2
             style={{
@@ -118,7 +143,7 @@ export default function FAQ() {
                   {faq.q}
                 </span>
 
-                {/* Icon */}
+                {/* Icon — custom chevron SVG */}
                 <div
                   style={{
                     width: '28px',
@@ -131,21 +156,10 @@ export default function FAQ() {
                     flexShrink: 0,
                     transition: 'all 0.3s ease',
                     backgroundColor: openIndex === i ? 'var(--gold-a08)' : 'transparent',
+                    color: openIndex === i ? 'var(--gold)' : 'var(--text-muted)',
                   }}
                 >
-                  <span
-                    style={{
-                      fontFamily: '"DM Sans", sans-serif',
-                      fontSize: '1rem',
-                      color: openIndex === i ? 'var(--gold)' : 'var(--text-muted)',
-                      lineHeight: 1,
-                      transform: openIndex === i ? 'rotate(45deg)' : 'rotate(0)',
-                      transition: 'transform 0.3s ease, color 0.3s ease',
-                      display: 'block',
-                    }}
-                  >
-                    +
-                  </span>
+                  <IconChevron isOpen={openIndex === i} />
                 </div>
               </button>
 

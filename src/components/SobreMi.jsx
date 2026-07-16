@@ -27,30 +27,11 @@ export default function SobreMi() {
         }}
       />
 
-      {/* Subtle large background text */}
       <div
-        style={{
-          position: 'absolute',
-          left: '-4%',
-          top: '50%',
-          transform: 'translateY(-50%)',
-          fontFamily: '"Cormorant Garamond", serif',
-          fontSize: 'clamp(120px, 20vw, 300px)',
-          fontWeight: '700',
-          color: 'var(--gold-a03)',
-          lineHeight: 1,
-          userSelect: 'none',
-          pointerEvents: 'none',
-        }}
-      >
-        Yo
-      </div>
-
-      <div
+        className="section-inner"
         style={{
           maxWidth: '1200px',
           margin: '0 auto',
-          padding: '0 40px',
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 420px), 1fr))',
           gap: '80px',
@@ -58,12 +39,10 @@ export default function SobreMi() {
           position: 'relative',
         }}
       >
-        {/* Left: Photo placeholder */}
+        {/* Left: Real photo */}
         <div
-          className="section-reveal-left"
-          style={{
-            position: 'relative',
-          }}
+          className="section-reveal-left sobre-mi-photo-wrapper"
+          style={{ position: 'relative' }}
         >
           {/* Main photo frame */}
           <div
@@ -76,59 +55,23 @@ export default function SobreMi() {
               border: '1px solid var(--gold-a12)',
             }}
           >
-            {/* Warm gradient placeholder photo */}
-            <div
+            {/* Real photo */}
+            <img
+              src="/psicologa.png"
+              alt="Lic. María González — Psicóloga Clínica"
               style={{
                 position: 'absolute',
                 inset: 0,
-                background: `
-                  radial-gradient(ellipse 80% 60% at 50% 30%, var(--gold-a12) 0%, transparent 60%),
-                  radial-gradient(ellipse 60% 80% at 30% 80%, var(--terra-a08) 0%, transparent 50%),
-                  var(--photo-gradient)
-                `,
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                objectPosition: 'center top',
               }}
             />
-
-            {/* Silhouette-like figure hint */}
-            <div
-              style={{
-                position: 'absolute',
-                bottom: 0,
-                left: '50%',
-                transform: 'translateX(-50%)',
-                width: '60%',
-                height: '85%',
-                background: 'var(--photo-silhouette)',
-                borderRadius: '100px 100px 0 0',
-              }}
-            />
-
-            {/* Initials overlay */}
-            <div
-              style={{
-                position: 'absolute',
-                inset: 0,
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}
-            >
-              <div
-                style={{
-                  fontFamily: '"Cormorant Garamond", serif',
-                  fontSize: '5rem',
-                  fontWeight: '300',
-                  color: 'var(--gold-a20)',
-                  lineHeight: 1,
-                }}
-              >
-                MG
-              </div>
-            </div>
 
             {/* Credential badge */}
             <div
+              className="sobre-mi-badge-credential"
               style={{
                 position: 'absolute',
                 bottom: '24px',
@@ -190,6 +133,7 @@ export default function SobreMi() {
 
           {/* Years badge */}
           <div
+            className="sobre-mi-badge-years"
             style={{
               position: 'absolute',
               top: '40px',

@@ -1,4 +1,4 @@
-# MindSpace — Psicología Clínica
+# Raíz Terapia — Psicología Clínica
 
 Landing page premium para consultorio de psicología. Desarrollada con React + Vite + Tailwind CSS.
 

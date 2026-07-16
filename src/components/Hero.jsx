@@ -1,3 +1,24 @@
+// SVG icon components — custom, no generic unicode symbols
+function IconCalendar() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="3" y="4" width="18" height="18" rx="2" />
+      <line x1="16" y1="2" x2="16" y2="6" />
+      <line x1="8" y1="2" x2="8" y2="6" />
+      <line x1="3" y1="10" x2="21" y2="10" />
+      <path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01" />
+    </svg>
+  );
+}
+
+function IconArrowRight() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M5 12h14M12 5l7 7-7 7" />
+    </svg>
+  );
+}
+
 export default function Hero() {
   return (
     <section
@@ -11,7 +32,7 @@ export default function Hero() {
         backgroundColor: 'var(--bg-warm)',
       }}
     >
-      {/* Background: layered gradients simulating warm photo */}
+      {/* Background: layered gradients */}
       <div
         style={{
           position: 'absolute',
@@ -27,25 +48,19 @@ export default function Hero() {
       {/* Grainy texture overlay */}
       <div className="grain-overlay" />
 
-      {/* Large decorative number */}
+      {/* Thin diagonal rule — replaces giant decorative letter */}
       <div
         style={{
           position: 'absolute',
-          right: '-2%',
-          top: '50%',
-          transform: 'translateY(-50%)',
-          fontFamily: '"Cormorant Garamond", serif',
-          fontSize: 'clamp(200px, 30vw, 500px)',
-          fontWeight: '700',
-          color: 'var(--gold-a04)',
-          lineHeight: 1,
-          userSelect: 'none',
+          right: 0,
+          top: 0,
+          bottom: 0,
+          width: '38%',
+          background: 'linear-gradient(to left, var(--gold-a03) 0%, transparent 100%)',
           pointerEvents: 'none',
           zIndex: 0,
         }}
-      >
-        M
-      </div>
+      />
 
       {/* Vertical line accent */}
       <div
@@ -60,22 +75,13 @@ export default function Hero() {
       />
 
       {/* Content */}
-      <div
-        style={{
-          position: 'relative',
-          zIndex: 2,
-          maxWidth: '1200px',
-          margin: '0 auto',
-          padding: '120px 40px 160px',
-          width: '100%',
-        }}
-      >
+      <div className="hero-content">
         {/* Eyebrow label */}
         <div
           style={{
             display: 'inline-flex',
             alignItems: 'center',
-            gap: '8px',
+            gap: '10px',
             marginBottom: '32px',
           }}
         >
@@ -143,7 +149,7 @@ export default function Hero() {
         </p>
 
         {/* CTA Row */}
-        <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', alignItems: 'center', marginBottom: '0' }}>
+        <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', alignItems: 'center' }}>
           <a
             href="#agenda"
             style={{
@@ -157,17 +163,20 @@ export default function Hero() {
               borderRadius: '4px',
               letterSpacing: '0.02em',
               transition: 'all 0.25s ease',
-              display: 'inline-block',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '10px',
             }}
             onMouseEnter={(e) => {
-              e.target.style.backgroundColor = 'var(--gold-light)';
-              e.target.style.transform = 'translateY(-2px)';
+              e.currentTarget.style.backgroundColor = 'var(--gold-light)';
+              e.currentTarget.style.transform = 'translateY(-2px)';
             }}
             onMouseLeave={(e) => {
-              e.target.style.backgroundColor = 'var(--gold)';
-              e.target.style.transform = 'translateY(0)';
+              e.currentTarget.style.backgroundColor = 'var(--gold)';
+              e.currentTarget.style.transform = 'translateY(0)';
             }}
           >
+            <IconCalendar />
             Reservar Ahora
           </a>
           <a
@@ -183,72 +192,44 @@ export default function Hero() {
               borderRadius: '4px',
               letterSpacing: '0.02em',
               transition: 'all 0.25s ease',
-              display: 'inline-block',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px',
             }}
             onMouseEnter={(e) => {
-              e.target.style.borderColor = 'var(--gold-a50)';
-              e.target.style.color = 'var(--gold)';
+              e.currentTarget.style.borderColor = 'var(--gold-a50)';
+              e.currentTarget.style.color = 'var(--gold)';
             }}
             onMouseLeave={(e) => {
-              e.target.style.borderColor = 'var(--text-primary-a25)';
-              e.target.style.color = 'var(--text-primary)';
+              e.currentTarget.style.borderColor = 'var(--text-primary-a25)';
+              e.currentTarget.style.color = 'var(--text-primary)';
             }}
           >
-            Conocer más →
+            Conocer más
+            <IconArrowRight />
           </a>
         </div>
 
-        {/* Spacer so badge doesn't overlap */}
-        <div style={{ height: '64px' }} />
-
-        {/* Floating badge — inline in flow, below CTAs */}
-        <div
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '12px',
-            backgroundColor: 'var(--surface-glass)',
-            border: '1px solid var(--gold-a20)',
-            padding: '12px 20px',
-            borderRadius: '8px',
-            backdropFilter: 'blur(12px)',
-          }}
-        >
-          <span style={{ color: 'var(--gold)', fontSize: '1rem' }}>✦</span>
-          <span
-            style={{
-              fontFamily: '"DM Sans", sans-serif',
-              fontSize: '0.875rem',
-              color: 'var(--text-primary)',
-              fontWeight: '400',
-            }}
-          >
-            +200 pacientes acompañados
-          </span>
-        </div>
-
-        {/* Stats row — top right */}
-        <div
-          style={{
-            position: 'absolute',
-            top: '140px',
-            right: '40px',
-            flexDirection: 'column',
-            gap: '24px',
-            alignItems: 'flex-end',
-            display: 'flex',
-          }}
-          className="hidden lg:flex"
-        >
+        {/* Stats strip */}
+        <div className="hero-stats-strip">
           {[
-            { num: '+8', label: 'años de\nexperiencia' },
-            { num: '98%', label: 'satisfacción\nde pacientes' },
-          ].map((s) => (
-            <div key={s.num} style={{ textAlign: 'right' }}>
+            { num: '+8', label: 'Años de experiencia' },
+            { num: '+200', label: 'Pacientes acompañados' },
+            { num: '100%', label: 'Confidencialidad garantizada' },
+          ].map((s, i) => (
+            <div
+              key={s.num}
+              className="hero-stat-item"
+              style={{
+                paddingRight: '40px',
+                paddingLeft: i === 0 ? '0' : '40px',
+                borderLeft: i === 0 ? 'none' : '1px solid var(--gold-a20)',
+              }}
+            >
               <div
                 style={{
                   fontFamily: '"Cormorant Garamond", serif',
-                  fontSize: '2.5rem',
+                  fontSize: '2rem',
                   fontWeight: '300',
                   color: 'var(--gold)',
                   lineHeight: 1,
@@ -259,11 +240,11 @@ export default function Hero() {
               <div
                 style={{
                   fontFamily: '"DM Sans", sans-serif',
-                  fontSize: '0.75rem',
+                  fontSize: '0.7rem',
                   color: 'var(--text-muted)',
-                  marginTop: '4px',
-                  whiteSpace: 'pre-line',
-                  textAlign: 'right',
+                  marginTop: '6px',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.08em',
                 }}
               >
                 {s.label}

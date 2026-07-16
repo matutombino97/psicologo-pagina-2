@@ -1,18 +1,18 @@
 import { useState } from 'react';
 
 const CATEGORIES = [
-  { id: 'ansiedad', icon: '🌊', title: 'Ansiedad y estrés', desc: 'Preocupaciones, ataques de pánico, tensión crónica' },
-  { id: 'relaciones', icon: '🤝', title: 'Relaciones y vínculos', desc: 'Pareja, familia, comunicación, límites' },
-  { id: 'duelo', icon: '🕊️', title: 'Duelo y pérdidas', desc: 'Procesar pérdidas afectivas o materiales' },
-  { id: 'autoestima', icon: '🌱', title: 'Autoestima e identidad', desc: 'Seguridad personal, autoconcepto, identidad' },
-  { id: 'trabajo', icon: '💼', title: 'Trabajo y burnout', desc: 'Agotamiento laboral, estrés laboral, carrera' },
-  { id: 'orientacion', icon: '🧭', title: 'No sé bien, necesito orientación', desc: 'Primera consulta de exploración abierta' },
+  { id: 'ansiedad', icon: <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>, title: 'Ansiedad y estrés', desc: 'Preocupaciones, ataques de pánico, tensión crónica' },
+  { id: 'relaciones', icon: <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>, title: 'Relaciones y vínculos', desc: 'Pareja, familia, comunicación, límites' },
+  { id: 'duelo', icon: <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>, title: 'Duelo y pérdidas', desc: 'Procesar pérdidas afectivas o materiales' },
+  { id: 'autoestima', icon: <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>, title: 'Autoestima e identidad', desc: 'Seguridad personal, autoconcepto, identidad' },
+  { id: 'trabajo', icon: <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>, title: 'Trabajo y burnout', desc: 'Agotamiento laboral, estrés laboral, carrera' },
+  { id: 'orientacion', icon: <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>, title: 'No sé bien, necesito orientación', desc: 'Primera consulta de exploración abierta' },
 ];
 
 const MODALITIES = [
-  { id: 'presencial', icon: '🏛️', title: 'Presencial', desc: 'Consultorio en Palermo, CABA' },
-  { id: 'online', icon: '💻', title: 'Online', desc: 'Videollamada cómoda desde casa' },
-  { id: 'sin-preferencia', icon: '✨', title: 'Sin preferencia', desc: 'Elegí el que más convenga' },
+  { id: 'presencial', icon: <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>, title: 'Presencial', desc: 'Consultorio en Palermo, CABA' },
+  { id: 'online', icon: <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>, title: 'Online', desc: 'Videollamada cómoda desde casa' },
+  { id: 'sin-preferencia', icon: <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3v18"/><path d="M3 12h18"/><path d="m18.36 5.64-12.72 12.72"/><path d="m5.64 5.64 12.72 12.72"/></svg>, title: 'Sin preferencia', desc: 'Elegí el que más convenga' },
 ];
 
 const TIME_OPTIONS = [
@@ -126,11 +126,16 @@ export default function SchedulingWidget() {
               color: 'var(--terracotta)',
               textTransform: 'uppercase',
               letterSpacing: '0.2em',
-              display: 'block',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px',
               marginBottom: '16px',
             }}
           >
-            ✦ Agenda Inteligente
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+              <path d="M1 6h10M6 1l5 5-5 5" />
+            </svg>
+            Agenda Inteligente
           </span>
           <h2
             style={{
@@ -323,7 +328,9 @@ export default function SchedulingWidget() {
                         }
                       }}
                     >
-                      <div style={{ fontSize: '1.5rem', marginBottom: '8px' }}>{cat.icon}</div>
+                      <div style={{ marginBottom: '12px', color: selectedCategory === cat.id ? 'var(--terracotta)' : 'var(--gold)', transition: 'color 0.2s ease' }}>
+                        {cat.icon}
+                      </div>
                       <div
                         style={{
                           fontFamily: '"DM Sans", sans-serif',
@@ -412,7 +419,9 @@ export default function SchedulingWidget() {
                         }
                       }}
                     >
-                      <div style={{ fontSize: '2rem', marginBottom: '12px' }}>{mod.icon}</div>
+                      <div style={{ marginBottom: '16px', display: 'flex', justifyContent: 'center', color: selectedModality === mod.id ? 'var(--terracotta)' : 'var(--gold)', transition: 'color 0.2s ease' }}>
+                        {mod.icon}
+                      </div>
                       <div
                         style={{
                           fontFamily: '"Cormorant Garamond", serif',
@@ -670,7 +679,7 @@ export default function SchedulingWidget() {
                     marginBottom: '8px',
                   }}
                 >
-                  Casi listo ✦
+                  Casi listo
                 </h3>
                 <p
                   style={{
@@ -857,13 +866,15 @@ export default function SchedulingWidget() {
               <div style={{ textAlign: 'center', padding: '40px 0' }}>
                 <div
                   style={{
-                    fontFamily: '"Cormorant Garamond", serif',
-                    fontSize: '3rem',
-                    color: 'var(--gold)',
                     marginBottom: '16px',
+                    display: 'flex',
+                    justifyContent: 'center',
                   }}
                 >
-                  ✦
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M8 12l3 3 5-5" />
+                  </svg>
                 </div>
                 <h3
                   style={{

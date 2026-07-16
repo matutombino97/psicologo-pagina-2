@@ -11,7 +11,7 @@ export default function Footer() {
         position: 'relative',
       }}
     >
-      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 40px' }}>
+      <div className="footer-inner" style={{ maxWidth: '1200px', margin: '0 auto' }}>
         {/* Top row */}
         <div
           style={{
@@ -35,7 +35,7 @@ export default function Footer() {
                 marginBottom: '16px',
               }}
             >
-              MindSpace
+              Raíz Terapia
             </a>
             <p
               style={{
@@ -218,7 +218,7 @@ export default function Footer() {
               color: 'var(--text-muted)',
             }}
           >
-            © {new Date().getFullYear()} MindSpace · Lic. María González · Mat. Prof. 12.345
+            © {new Date().getFullYear()} Raíz Terapia · Lic. María González · Mat. Prof. 12.345
           </p>
           <p
             style={{

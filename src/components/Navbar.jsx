@@ -48,7 +48,7 @@ export default function Navbar() {
           letterSpacing: '0.02em',
         }}
       >
-        MindSpace
+        Raíz Terapia
       </a>
 
       {/* Desktop Nav */}

@@ -484,3 +484,199 @@ body {
 section, footer, nav, .testimonial-card, .card-hover {
   transition: background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease;
 }
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE — Section padding utility
+   ═══════════════════════════════════════════ */
+.section-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+@media (max-width: 768px) {
+  .section-inner {
+    padding: 0 20px;
+  }
+}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE — Hero
+   ═══════════════════════════════════════════ */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 120px 40px 160px;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .hero-content {
+    padding: 100px 20px 80px;
+  }
+}
+
+/* Hero CTA buttons — stack on mobile */
+.hero-cta-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+@media (max-width: 480px) {
+  .hero-cta-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .hero-cta-row a {
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+/* Hero stats strip */
+.hero-stats-strip {
+  margin-top: 72px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+}
+
+@media (max-width: 600px) {
+  .hero-stats-strip {
+    margin-top: 48px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  /* Reset the border-left dividers on mobile grid */
+  .hero-stat-item {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    border-left: none !important;
+  }
+  /* Add a subtle separator between grid items */
+  .hero-stat-item:nth-child(even) {
+    padding-left: 16px !important;
+    border-left: 1px solid var(--gold-a20) !important;
+  }
+  /* 3rd item spans full width */
+  .hero-stat-item:nth-child(3) {
+    grid-column: 1 / -1;
+    padding-top: 16px;
+    border-top: 1px solid var(--gold-a12);
+  }
+}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE — Sobre mí
+   ═══════════════════════════════════════════ */
+
+/* Push the floating badges inside the photo on mobile */
+@media (max-width: 768px) {
+  .sobre-mi-photo-wrapper {
+    padding: 0 24px; /* give room for the overflowing badges */
+    overflow: visible;
+  }
+  .sobre-mi-badge-credential {
+    right: 0 !important;
+  }
+  .sobre-mi-badge-years {
+    left: 0 !important;
+  }
+}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE — General section padding
+   ═══════════════════════════════════════════ */
+@media (max-width: 768px) {
+  /* Reduce vertical section padding */
+  #especialidades,
+  #sobre-mi {
+    padding-top: 72px !important;
+    padding-bottom: 72px !important;
+  }
+
+  /* Reduce horizontal padding in all max-width containers */
+  [style*="padding: 0 40px"],
+  [style*="padding: '0 40px'"] {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE — Testimonials on mobile
+   ═══════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .testimonials-track {
+    padding-left: 20px;
+    padding-right: 20px;
+    scroll-padding-left: 20px;
+  }
+  .testimonial-card {
+    width: calc(100vw - 40px);
+    max-width: 100%;
+  }
+}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE — Navbar
+   ═══════════════════════════════════════════ */
+@media (max-width: 768px) {
+  nav[style] {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE — FAQ
+   ═══════════════════════════════════════════ */
+.faq-container {
+  padding: 0 40px;
+}
+
+@media (max-width: 768px) {
+  .faq-container {
+    padding: 0 20px !important;
+  }
+}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE — Footer
+   ═══════════════════════════════════════════ */
+.footer-inner {
+  padding: 0 40px;
+}
+
+@media (max-width: 768px) {
+  .footer-inner {
+    padding: 0 20px !important;
+  }
+}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE — SobreMi grid gap
+   ═══════════════════════════════════════════ */
+@media (max-width: 768px) {
+  #sobre-mi .section-inner {
+    gap: 40px !important;
+  }
+
+  /* Move vertical hero accent off-screen on mobile */
+  #inicio > div[style*="left: 40px"] {
+    display: none;
+  }
+
+  /* Scheduling widget mobile padding */
+  #agenda .section-inner,
+  #agenda > div > div {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+}
+

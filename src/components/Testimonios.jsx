@@ -1,5 +1,22 @@
 import { useRef, useState, useEffect } from 'react';
 
+function IconQuote() {
+  return (
+    <svg width="32" height="24" viewBox="0 0 32 24" fill="none">
+      <path d="M0 24V14.4C0 6.4 4.8 1.6 14.4 0l1.6 2.4C10.4 3.6 7.2 6.4 6.4 10.4H12V24H0zm20 0V14.4C20 6.4 24.8 1.6 34.4 0L36 2.4C30.4 3.6 27.2 6.4 26.4 10.4H32V24H20z"
+        fill="currentColor" />
+    </svg>
+  );
+}
+
+function IconSectionTag() {
+  return (
+    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+      <path d="M1 6h10M6 1l5 5-5 5" />
+    </svg>
+  );
+}
+
 const TESTIMONIALS = [
   {
     initials: 'L.M.',
@@ -148,7 +165,7 @@ export default function Testimonios() {
         }}
       />
 
-      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 40px' }}>
+      <div className="section-inner" style={{ maxWidth: '1200px', margin: '0 auto' }}>
         {/* Header */}
         <div
           className="section-reveal"
@@ -170,11 +187,14 @@ export default function Testimonios() {
                 color: 'var(--terracotta)',
                 textTransform: 'uppercase',
                 letterSpacing: '0.2em',
-                display: 'block',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
                 marginBottom: '16px',
               }}
             >
-              ✦ Testimonios
+              <IconSectionTag />
+              Testimonios
             </span>
             <h2
               style={{
@@ -224,18 +244,16 @@ export default function Testimonios() {
               key={t.name}
               className="testimonial-card"
             >
-              {/* Quote mark */}
+              {/* Typographic SVG quote mark */}
               <div
                 style={{
-                  fontFamily: '"Cormorant Garamond", serif',
-                  fontSize: '4rem',
                   color: 'var(--gold-a20)',
-                  lineHeight: '1',
                   marginBottom: '16px',
-                  marginTop: '-12px',
+                  marginTop: '-8px',
+                  lineHeight: 1,
                 }}
               >
-                "
+                <IconQuote />
               </div>
 
               {/* Stars */}
