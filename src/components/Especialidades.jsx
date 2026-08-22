@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 // Custom SVG icons — specific to each therapy area
 function IconIndividual() {
@@ -81,6 +81,27 @@ const SPECIALTIES = [
 
 export default function Especialidades() {
   const [hoveredId, setHoveredId] = useState(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const trackRef = useRef(null);
+
+  const handleScroll = () => {
+    if (!trackRef.current) return;
+    const scrollLeft = trackRef.current.scrollLeft;
+    const cardWidth = trackRef.current.children[0]?.offsetWidth || 300;
+    const index = Math.round(scrollLeft / cardWidth);
+    setActiveIndex(Math.min(SPECIALTIES.length - 1, Math.max(0, index)));
+  };
+
+  const scrollToIndex = (index) => {
+    if (trackRef.current && trackRef.current.children[index]) {
+      const card = trackRef.current.children[index];
+      trackRef.current.scrollTo({
+        left: card.offsetLeft - trackRef.current.offsetLeft,
+        behavior: 'smooth',
+      });
+      setActiveIndex(index);
+    }
+  };
 
   return (
     <section
@@ -109,7 +130,7 @@ export default function Especialidades() {
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'flex-end',
-            marginBottom: '64px',
+            marginBottom: '48px',
             flexWrap: 'wrap',
             gap: '24px',
           }}
@@ -135,7 +156,7 @@ export default function Especialidades() {
             <h2
               style={{
                 fontFamily: 'var(--font-display)',
-                fontSize: 'clamp(2.5rem, 5vw, 4rem)',
+                fontSize: 'clamp(2.2rem, 5vw, 4rem)',
                 fontWeight: '700',
                 color: 'var(--text-primary)',
                 lineHeight: '1.1',
@@ -156,29 +177,27 @@ export default function Especialidades() {
               margin: 0,
             }}
           >
-            Cada proceso terapéutico es único. Trabajamos desde un enfoque clínico basado en evidencia, adaptado a tus necesidades y objetivos particulares.
+            Cada proceso terapéutico es único. Trabajamos desde un enfoque clínico basado en evidencia, adaptado a tus necesidades particulares.
           </p>
         </div>
 
-        {/* Cards grid */}
+        {/* Cards container: Grid on desktop, Swipeable Horizontal Carousel on mobile */}
         <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))',
-            gap: '24px',
-          }}
+          ref={trackRef}
+          onScroll={handleScroll}
+          className="especialidades-track"
         >
           {SPECIALTIES.map((spec, i) => (
             <div
               key={spec.id}
-              className="section-reveal card-hover"
+              className="section-reveal card-hover especialidades-card"
               style={{
                 transitionDelay: `${i * 70}ms`,
                 backgroundColor: 'var(--surface)',
-                border: hoveredId === spec.id ? '1px solid var(--gold)' : '1px solid var(--border)',
+                border: hoveredId === spec.id ? '1.5px solid var(--gold)' : '1px solid var(--border)',
                 boxShadow: hoveredId === spec.id ? 'var(--card-shadow-hover)' : 'var(--card-shadow)',
                 borderRadius: '8px',
-                padding: '36px 28px',
+                padding: '32px 24px',
                 position: 'relative',
                 overflow: 'hidden',
                 display: 'flex',
@@ -207,7 +226,7 @@ export default function Especialidades() {
                 <div
                   style={{
                     color: hoveredId === spec.id ? 'var(--gold)' : 'var(--text-muted)',
-                    marginBottom: '20px',
+                    marginBottom: '16px',
                     transition: 'color 0.25s ease',
                     display: 'flex',
                   }}
@@ -219,10 +238,10 @@ export default function Especialidades() {
                 <h3
                   style={{
                     fontFamily: 'var(--font-display)',
-                    fontSize: '1.45rem',
+                    fontSize: '1.35rem',
                     fontWeight: '700',
                     color: 'var(--text-primary)',
-                    marginBottom: '12px',
+                    marginBottom: '10px',
                     lineHeight: '1.2',
                     letterSpacing: '-0.015em',
                   }}
@@ -230,35 +249,35 @@ export default function Especialidades() {
                   {spec.title}
                 </h3>
 
-                {/* High Contrast Descriptive Text (Accessibility Enhanced) */}
+                {/* High Contrast Descriptive Text */}
                 <p
                   style={{
                     fontFamily: '"DM Sans", sans-serif',
-                    fontSize: '0.9rem',
+                    fontSize: '0.875rem',
                     fontWeight: '400',
                     color: 'var(--text-body)',
-                    lineHeight: '1.7',
-                    marginBottom: '24px',
+                    lineHeight: '1.65',
+                    marginBottom: '20px',
                   }}
                 >
                   {spec.desc}
                 </p>
 
                 {/* Tags */}
-                <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '28px' }}>
+                <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', marginBottom: '24px' }}>
                   {spec.tags.map((tag) => (
                     <span
                       key={tag}
                       style={{
                         fontFamily: '"DM Sans", sans-serif',
-                        fontSize: '0.7rem',
+                        fontSize: '0.68rem',
                         fontWeight: '500',
                         color: 'var(--text-body)',
-                        backgroundColor: 'var(--gold-a05)',
+                        backgroundColor: 'var(--gold-a08)',
                         border: '1px solid var(--border-soft)',
                         borderRadius: '4px',
-                        padding: '4px 10px',
-                        letterSpacing: '0.03em',
+                        padding: '3px 8px',
+                        letterSpacing: '0.02em',
                       }}
                     >
                       {tag}
@@ -267,18 +286,18 @@ export default function Especialidades() {
                 </div>
               </div>
 
-              {/* Enhanced Action CTA (High contrast & interactive hover) */}
+              {/* Action CTA */}
               <div>
                 <a
                   href="#agenda"
                   style={{
                     fontFamily: '"DM Sans", sans-serif',
-                    fontSize: '0.825rem',
+                    fontSize: '0.8rem',
                     fontWeight: '600',
                     color: hoveredId === spec.id ? 'var(--text-on-dark-accent)' : 'var(--text-primary)',
                     backgroundColor: hoveredId === spec.id ? 'var(--gold)' : 'var(--gold-a08)',
                     border: hoveredId === spec.id ? '1px solid var(--gold)' : '1px solid var(--border-solid)',
-                    padding: '10px 18px',
+                    padding: '9px 16px',
                     borderRadius: '6px',
                     textDecoration: 'none',
                     display: 'inline-flex',
@@ -303,6 +322,28 @@ export default function Especialidades() {
                 </a>
               </div>
             </div>
+          ))}
+        </div>
+
+        {/* Mobile Carousel Indicators / Dots */}
+        <div className="especialidades-mobile-dots">
+          {SPECIALTIES.map((_, i) => (
+            <button
+              key={i}
+              type="button"
+              onClick={() => scrollToIndex(i)}
+              aria-label={`Ir al servicio ${i + 1}`}
+              style={{
+                width: activeIndex === i ? '24px' : '8px',
+                height: '8px',
+                borderRadius: '4px',
+                backgroundColor: activeIndex === i ? 'var(--gold)' : 'var(--border-solid)',
+                border: 'none',
+                padding: 0,
+                cursor: 'pointer',
+                transition: 'all 0.3s ease',
+              }}
+            />
           ))}
         </div>
       </div>

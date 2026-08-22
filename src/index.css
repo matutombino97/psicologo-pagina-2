@@ -697,15 +697,134 @@ section, footer, nav, .testimonial-card, .card-hover {
     --hero-bg-image-overlay: linear-gradient(180deg, rgba(250, 249, 246, 0.96) 0%, rgba(250, 249, 246, 0.88) 60%, rgba(250, 249, 246, 0.4) 100%);
   }
 
-  /* Especialidades Header Stack on Mobile */
-  .especialidades-header {
-    flex-direction: column !important;
-    align-items: flex-start !important;
+  /* Especialidades Carousel on Mobile */
+  .especialidades-track {
+    display: flex !important;
     gap: 16px !important;
-    margin-bottom: 40px !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+    padding-bottom: 12px !important;
+    margin: 0 -16px !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
   }
-  .especialidades-header p {
-    max-width: 100% !important;
+  .especialidades-track::-webkit-scrollbar {
+    display: none !important;
+  }
+  .especialidades-card {
+    width: calc(100vw - 64px) !important;
+    max-width: 320px !important;
+    flex-shrink: 0 !important;
+    scroll-snap-align: center !important;
+  }
+  .especialidades-mobile-dots {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 8px !important;
+    margin-top: 24px !important;
+  }
+
+  /* Agenda Single-Screen Mobile Layout */
+  .agenda-section {
+    padding: 48px 0 64px !important;
+  }
+  .agenda-header {
+    margin-bottom: 16px !important;
+  }
+  .agenda-subtitle {
+    display: none !important;
+  }
+  .agenda-progress-header {
+    padding: 16px 16px 0 !important;
+  }
+  .agenda-step-content {
+    padding: 0 14px 16px !important;
+    min-height: auto !important;
+  }
+  .agenda-step1-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+  }
+  .agenda-cat-btn {
+    padding: 10px 10px !important;
+    min-height: 76px !important;
+  }
+  .agenda-cat-desc {
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+  }
+  .agenda-step2-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 8px !important;
+  }
+  .agenda-mod-btn {
+    padding: 12px 6px !important;
+    min-height: 84px !important;
+  }
+  .agenda-nav-footer {
+    padding: 12px 16px !important;
+    border-top: 1px solid var(--border-solid) !important;
+    background-color: var(--surface) !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+  }
+}
+
+/* Desktop default for Especialidades & Agenda */
+@media (min-width: 769px) {
+  .especialidades-track {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 24px;
+  }
+  .especialidades-mobile-dots {
+    display: none;
+  }
+  .agenda-section {
+    padding: 120px 0;
+  }
+  .agenda-header {
+    margin-bottom: 56px;
+  }
+  .agenda-progress-header {
+    padding: 32px 36px 0;
+  }
+  .agenda-step-content {
+    padding: 0 36px 36px;
+    min-height: 340px;
+  }
+  .agenda-step1-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 14px;
+  }
+  .agenda-cat-btn {
+    padding: 22px 20px;
+    min-height: 125px;
+  }
+  .agenda-step2-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+  }
+  .agenda-mod-btn {
+    padding: 32px 20px;
+  }
+  .agenda-nav-footer {
+    padding: 24px 36px;
+    border-top: 1px solid var(--border-solid);
+    background-color: var(--surface);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 }
 
