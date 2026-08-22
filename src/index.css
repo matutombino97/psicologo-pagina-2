@@ -116,10 +116,10 @@
    Organic Warm Linen & Sage Green
    ═══════════════════════════════════════════ */
 [data-theme="light"] {
-  /* Backgrounds */
-  --bg-primary: #F5F3ED; /* Refined Warm Linen Off-White */
-  --bg-warm: #EAE6DC; /* Warm Stone for rich section rhythm */
-  --bg-footer: #DFD9CE;
+  /* Backgrounds - Noticeable warm stone grays */
+  --bg-primary: #EDEAE1; /* Rich Warm Linen Gray */
+  --bg-warm: #E2DDD2; /* Deeper Stone Gray for alternating sections */
+  --bg-footer: #D6D0C3;
   --bg-agenda: #22352C; /* Contrast Pine for Agenda */
   --surface: #FFFFFF; /* Crisp Pure White Cards */
   --surface-hover: #FFFFFF;
@@ -140,14 +140,14 @@
   --text-agenda-heading: #FFFFFF;
   --text-agenda-body: #A5B5AD;
 
-  /* Borders - Crisp containment */
-  --border: rgba(46, 68, 54, 0.12);
-  --border-soft: rgba(46, 68, 54, 0.06);
-  --border-solid: rgba(46, 68, 54, 0.22);
+  /* Borders - Clear structural containment */
+  --border: rgba(46, 68, 54, 0.2);
+  --border-soft: rgba(46, 68, 54, 0.12);
+  --border-solid: rgba(46, 68, 54, 0.35);
 
-  /* Soft atmospheric ambient shadows */
-  --card-shadow: 0 4px 20px rgba(28, 38, 33, 0.06), 0 1px 4px rgba(28, 38, 33, 0.03);
-  --card-shadow-hover: 0 16px 36px rgba(28, 38, 33, 0.1), 0 4px 12px rgba(28, 38, 33, 0.04);
+  /* Soft atmospheric ambient shadows with real presence */
+  --card-shadow: 0 4px 18px rgba(30, 42, 36, 0.1), 0 1px 4px rgba(30, 42, 36, 0.05);
+  --card-shadow-hover: 0 18px 38px rgba(30, 42, 36, 0.16), 0 4px 12px rgba(30, 42, 36, 0.08);
 
   /* Sage alphas on light bg */
   --gold-a03: rgba(46, 68, 54, 0.03);
@@ -177,33 +177,33 @@
   --text-primary-a25: rgba(28, 38, 33, 0.2);
 
   /* Overlays / Glass */
-  --navbar-bg: rgba(245, 243, 237, 0.92);
-  --navbar-mobile-bg: rgba(245, 243, 237, 0.98);
+  --navbar-bg: rgba(237, 234, 225, 0.94);
+  --navbar-mobile-bg: rgba(237, 234, 225, 0.98);
   --surface-glass: rgba(255, 255, 255, 0.95);
-  --input-bg: #F5F3ED;
-  --input-bg-hover: #EAE6DC;
+  --input-bg: #E4DFD4;
+  --input-bg-hover: #D9D3C6;
 
   /* Selection */
   --selection-bg: rgba(135, 110, 101, 0.2);
 
   /* Decorative */
   --grain-opacity: 0.02;
-  --hero-gradient: linear-gradient(135deg, #F5F3ED 0%, #EAE6DC 50%, #DFD9CE 100%);
+  --hero-gradient: linear-gradient(135deg, #EDEAE1 0%, #E2DDD2 50%, #D6D0C3 100%);
   --hero-radial-1: rgba(46, 68, 54, 0.05);
   --hero-radial-2: rgba(135, 110, 101, 0.03);
-  --hero-bg-image-overlay: linear-gradient(90deg, rgba(245, 243, 237, 0.96) 0%, rgba(245, 243, 237, 0.86) 38%, rgba(245, 243, 237, 0.42) 72%, rgba(245, 243, 237, 0.15) 100%);
-  --hero-bottom-scrim: linear-gradient(to top, rgba(245, 243, 237, 0.98) 0%, rgba(245, 243, 237, 0.85) 18%, rgba(245, 243, 237, 0.4) 30%, transparent 45%);
+  --hero-bg-image-overlay: linear-gradient(90deg, rgba(237, 234, 225, 0.96) 0%, rgba(237, 234, 225, 0.86) 38%, rgba(237, 234, 225, 0.42) 72%, rgba(237, 234, 225, 0.15) 100%);
+  --hero-bottom-scrim: linear-gradient(to top, rgba(237, 234, 225, 0.98) 0%, rgba(237, 234, 225, 0.85) 18%, rgba(237, 234, 225, 0.4) 30%, transparent 45%);
   --divider-accent: linear-gradient(to right, transparent, rgba(46, 68, 54, 0.12), transparent);
   --divider-accent-soft: linear-gradient(to right, transparent, rgba(46, 68, 54, 0.08), transparent);
-  --photo-gradient: linear-gradient(180deg, #DFD9CE 0%, #EAE6DC 50%, #F5F3ED 100%);
-  --photo-silhouette: linear-gradient(to top, rgba(223,217,206,0.7) 0%, rgba(234,230,220,0.4) 60%, transparent 100%);
+  --photo-gradient: linear-gradient(180deg, #D6D0C3 0%, #E2DDD2 50%, #EDEAE1 100%);
+  --photo-silhouette: linear-gradient(to top, rgba(214,208,195,0.7) 0%, rgba(226,221,210,0.4) 60%, transparent 100%);
   --scroll-line: linear-gradient(to bottom, var(--gold), transparent);
   --vertical-accent: linear-gradient(to bottom, transparent, rgba(46, 68, 54, 0.12), transparent);
   --divider-gold-to-right: linear-gradient(to right, rgba(46, 68, 54, 0.1), transparent);
   --top-accent-line: linear-gradient(to right, var(--gold), transparent);
 
   /* Scrollbar */
-  --scrollbar-track: #EAE6DC;
+  --scrollbar-track: #E2DDD2;
   --scrollbar-thumb: #2E4436;
 
   /* WhatsApp */

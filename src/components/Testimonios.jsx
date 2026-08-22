@@ -148,7 +148,7 @@ export default function Testimonios() {
   return (
     <section
       style={{
-        backgroundColor: 'var(--bg-primary)',
+        backgroundColor: 'var(--bg-warm)',
         padding: '120px 0',
         position: 'relative',
         overflow: 'hidden',
