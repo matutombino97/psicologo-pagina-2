@@ -687,5 +687,16 @@ section, footer, nav, .testimonial-card, .card-hover {
   [data-theme="light"] {
     --hero-bg-image-overlay: linear-gradient(180deg, rgba(250, 249, 246, 0.96) 0%, rgba(250, 249, 246, 0.88) 60%, rgba(250, 249, 246, 0.4) 100%);
   }
+
+  /* Especialidades Header Stack on Mobile */
+  .especialidades-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 16px !important;
+    margin-bottom: 40px !important;
+  }
+  .especialidades-header p {
+    max-width: 100% !important;
+  }
 }
 
