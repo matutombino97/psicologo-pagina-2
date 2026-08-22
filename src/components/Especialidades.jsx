@@ -176,7 +176,7 @@ export default function Especialidades() {
                 transitionDelay: `${i * 70}ms`,
                 backgroundColor: 'var(--surface)',
                 border: hoveredId === spec.id ? '1px solid var(--gold)' : '1px solid var(--border)',
-                boxShadow: hoveredId === spec.id ? '0 8px 24px rgba(0, 0, 0, 0.06)' : 'var(--card-shadow, none)',
+                boxShadow: hoveredId === spec.id ? 'var(--card-shadow-hover)' : 'var(--card-shadow)',
                 borderRadius: '8px',
                 padding: '36px 28px',
                 position: 'relative',

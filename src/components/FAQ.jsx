@@ -101,17 +101,19 @@ export default function FAQ() {
         </div>
 
         {/* FAQ items */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
           {FAQS.map((faq, i) => (
             <div
               key={i}
               className="section-reveal"
               style={{
                 transitionDelay: `${i * 60}ms`,
-                borderLeft: openIndex === i ? '2px solid var(--gold)' : '2px solid var(--border)',
-                transition: 'border-color 0.3s ease',
-                paddingLeft: '20px',
-                marginBottom: '8px',
+                backgroundColor: 'var(--surface)',
+                border: openIndex === i ? '1.5px solid var(--gold)' : '1px solid var(--border)',
+                boxShadow: openIndex === i ? 'var(--card-shadow-hover)' : 'var(--card-shadow)',
+                borderRadius: '8px',
+                padding: '0 24px',
+                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
               }}
             >
               {/* Question row */}
@@ -174,23 +176,16 @@ export default function FAQ() {
                 <p
                   style={{
                     fontFamily: '"DM Sans", sans-serif',
-                    fontSize: '0.9rem',
-                    color: 'var(--text-muted)',
-                    lineHeight: '1.8',
-                    paddingBottom: '24px',
+                    fontSize: '0.925rem',
+                    color: 'var(--text-body)',
+                    lineHeight: '1.75',
+                    paddingBottom: '20px',
+                    margin: 0,
                   }}
                 >
                   {faq.a}
                 </p>
               </div>
-
-              {/* Separator */}
-              <div
-                style={{
-                  height: '1px',
-                  background: 'var(--border-soft)',
-                }}
-              />
             </div>
           ))}
         </div>
