@@ -1,22 +1,20 @@
-import { useState, useEffect } from 'react';
+import heroBg from '../assets/hero.jpg';
 
-// SVG icon components — custom, no generic unicode symbols
 function IconCalendar() {
   return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <rect x="3" y="4" width="18" height="18" rx="2" />
       <line x1="16" y1="2" x2="16" y2="6" />
       <line x1="8" y1="2" x2="8" y2="6" />
       <line x1="3" y1="10" x2="21" y2="10" />
-      <path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01" />
     </svg>
   );
 }
 
-function IconArrowRight() {
+function IconArrowDown() {
   return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M5 12h14M12 5l7 7-7 7" />
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M7 13l5 5 5-5M12 4v14" />
     </svg>
   );
 }
@@ -29,10 +27,12 @@ export default function Hero() {
         position: 'relative',
         minHeight: '100vh',
         display: 'flex',
-        alignItems: 'center',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
         overflow: 'hidden',
         backgroundColor: 'var(--bg-primary)',
-        paddingTop: '80px',
+        paddingTop: '110px',
+        paddingBottom: '40px',
       }}
     >
       {/* Background Image from Unsplash (Minimalist warm consulting office) */}
@@ -40,19 +40,20 @@ export default function Hero() {
         style={{
           position: 'absolute',
           inset: 0,
-          backgroundImage: `url('https://images.unsplash.com/photo-1598256989800-fe5f95da9787?q=80&w=1920&auto=format&fit=crop')`,
+          backgroundImage: `url(${heroBg})`,
           backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          backgroundPosition: 'center 35%',
           pointerEvents: 'none',
           zIndex: 0,
         }}
       />
-      {/* Brand-consistent overlay */}
+
+      {/* Brand-consistent Directional Gradient Overlay (ensures visibility & text contrast in both themes) */}
       <div
         style={{
           position: 'absolute',
           inset: 0,
-          backgroundColor: 'var(--hero-bg-image-overlay)',
+          background: 'var(--hero-bg-image-overlay)',
           pointerEvents: 'none',
           zIndex: 0,
         }}
@@ -61,260 +62,265 @@ export default function Hero() {
       {/* Grainy texture overlay */}
       <div className="grain-overlay" />
 
-      {/* Responsive 60/40 Asymmetric Layout Container */}
+      {/* Main Content Area */}
       <div
         className="section-inner"
         style={{
           position: 'relative',
           zIndex: 2,
           width: '100%',
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 450px), 1fr))',
-          gap: '64px',
-          alignItems: 'center',
-          paddingTop: '64px',
-          paddingBottom: '80px',
+          maxWidth: '1200px',
+          margin: '0 auto',
+          paddingTop: '32px',
+          paddingBottom: '48px',
         }}
       >
-        {/* Left Side (60% equivalent) — Left-aligned Typography with Irregular hierarchy */}
-        <div style={{ textAlign: 'left' }}>
-          {/* Eyebrow label */}
-          <div
+        {/* Top Context Indicator */}
+        <div
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '12px',
+            marginBottom: '28px',
+            padding: '6px 14px',
+            borderRadius: '100px',
+            backgroundColor: 'var(--gold-a08)',
+            border: '1px solid var(--border)',
+          }}
+        >
+          <span
             style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '10px',
-              marginBottom: '28px',
+              width: '7px',
+              height: '7px',
+              borderRadius: '50%',
+              backgroundColor: '#25D366',
+              boxShadow: '0 0 8px rgba(37, 211, 102, 0.6)',
+              display: 'inline-block',
+            }}
+          />
+          <span
+            style={{
+              fontFamily: '"DM Sans", sans-serif',
+              fontSize: '0.75rem',
+              fontWeight: '600',
+              color: 'var(--text-primary)',
+              letterSpacing: '0.04em',
+              textTransform: 'uppercase',
             }}
           >
-            <span
-              style={{
-                display: 'inline-block',
-                width: '24px',
-                height: '1.5px',
-                backgroundColor: 'var(--gold)',
-              }}
-            />
-            <span
-              style={{
-                fontFamily: '"DM Sans", sans-serif',
-                fontSize: '0.75rem',
-                fontWeight: '600',
-                color: 'var(--gold)',
-                textTransform: 'uppercase',
-                letterSpacing: '0.15em',
-              }}
-            >
-              Psicología Clínica · Buenos Aires
-            </span>
-          </div>
+            Consultorio Palermo · Atención Presencial & Online
+          </span>
+        </div>
 
-          {/* Irregular Typographic Hierarchy Title */}
+        {/* Editorial Headline */}
+        <div style={{ maxWidth: '880px', marginBottom: '28px' }}>
           <h1
             style={{
               fontFamily: 'var(--font-display)',
               color: 'var(--text-primary)',
-              lineHeight: '1.05',
-              letterSpacing: '-0.03em',
-              marginBottom: '32px',
+              lineHeight: '1.04',
+              letterSpacing: '-0.035em',
+              margin: 0,
             }}
           >
-            {/* Small weight/style line */}
             <span
               style={{
                 display: 'block',
-                fontSize: 'clamp(1.5rem, 3.5vw, 2.5rem)',
-                fontWeight: '300',
+                fontSize: 'clamp(1.4rem, 2.8vw, 2.2rem)',
+                fontWeight: '400',
                 color: 'var(--text-muted)',
-                marginBottom: '12px',
+                marginBottom: '10px',
                 letterSpacing: '-0.01em',
               }}
             >
-              Un espacio para volver a empezar
+              Psicoterapia individual basada en evidencia
             </span>
-            {/* Massive Bold line */}
             <span
               style={{
                 display: 'block',
-                fontSize: 'clamp(3rem, 6.5vw, 5.5rem)',
+                fontSize: 'clamp(2.6rem, 6vw, 4.8rem)',
                 fontWeight: '800',
-                color: 'var(--gold)',
-                textTransform: 'uppercase',
+                color: 'var(--text-primary)',
                 letterSpacing: '-0.04em',
-                marginBottom: '12px',
+                marginBottom: '8px',
               }}
             >
-              Desde la raíz.
+              Entender el origen.
             </span>
-            {/* Medium supportive line */}
             <span
               style={{
                 display: 'block',
-                fontSize: 'clamp(1.75rem, 4vw, 3rem)',
-                fontWeight: '400',
-                color: 'var(--text-primary)',
-                letterSpacing: '-0.02em',
+                fontSize: 'clamp(2rem, 4.8vw, 3.8rem)',
+                fontWeight: '600',
+                color: 'var(--gold)',
+                letterSpacing: '-0.03em',
               }}
             >
-              Terapia basada en evidencia.
+              Transformar tu día a día.
             </span>
           </h1>
-
-          {/* Subtext */}
-          <p
-            style={{
-              fontFamily: '"DM Sans", sans-serif',
-              fontSize: 'clamp(1rem, 1.2vw, 1.125rem)',
-              fontWeight: '400',
-              color: 'var(--text-muted)',
-              maxWidth: '520px',
-              lineHeight: '1.7',
-              marginBottom: '44px',
-            }}
-          >
-            Acompañamiento psicoterapéutico individual para jóvenes y adultos. Enfoque cognitivo-conductual práctico enfocado en brindarte herramientas reales para tu vida cotidiana.
-          </p>
-
-          {/* CTA Row */}
-          <div className="hero-cta-row">
-            <a
-              href="#agenda"
-              style={{
-                fontFamily: '"DM Sans", sans-serif',
-                fontSize: '0.95rem',
-                fontWeight: '600',
-                color: 'var(--text-on-dark-accent)',
-                textDecoration: 'none',
-                backgroundColor: 'var(--gold)',
-                padding: '18px 36px',
-                borderRadius: '8px',
-                letterSpacing: '0.02em',
-                transition: 'all 0.25s ease',
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '10px',
-                boxShadow: '0 4px 14px rgba(46, 68, 54, 0.15)',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = 'var(--gold-light)';
-                e.currentTarget.style.transform = 'translateY(-2px)';
-                e.currentTarget.style.boxShadow = '0 6px 20px rgba(46, 68, 54, 0.25)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = 'var(--gold)';
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = '0 4px 14px rgba(46, 68, 54, 0.15)';
-              }}
-            >
-              <IconCalendar />
-              Reservar consulta
-            </a>
-            <a
-              href="#sobre-mi"
-              style={{
-                fontFamily: '"DM Sans", sans-serif',
-                fontSize: '0.95rem',
-                fontWeight: '500',
-                color: 'var(--text-primary)',
-                textDecoration: 'none',
-                border: '1.5px solid var(--border)',
-                padding: '16.5px 36px',
-                borderRadius: '8px',
-                letterSpacing: '0.02em',
-                transition: 'all 0.25s ease',
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '8px',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = 'var(--gold)';
-                e.currentTarget.style.color = 'var(--gold)';
-                e.currentTarget.style.backgroundColor = 'var(--surface-hover)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = 'var(--border)';
-                e.currentTarget.style.color = 'var(--text-primary)';
-                e.currentTarget.style.backgroundColor = 'transparent';
-              }}
-            >
-              Conocer más
-              <IconArrowRight />
-            </a>
-          </div>
         </div>
 
-        {/* Right Side (40% equivalent) — Real photo in context */}
+        {/* Narrative Subtext */}
+        <p
+          style={{
+            fontFamily: '"DM Sans", sans-serif',
+            fontSize: 'clamp(1.05rem, 1.35vw, 1.2rem)',
+            fontWeight: '400',
+            color: 'var(--text-body)',
+            maxWidth: '620px',
+            lineHeight: '1.7',
+            marginBottom: '40px',
+          }}
+        >
+          Un espacio seguro y confidencial donde desarmar lo que abruma y construir recursos prácticos para tu bienestar emocional y tus vínculos.
+        </p>
+
+        {/* Action Group */}
         <div
           style={{
             display: 'flex',
-            justifyContent: 'center',
-            position: 'relative',
-            width: '100%',
+            alignItems: 'center',
+            gap: '20px',
+            flexWrap: 'wrap',
           }}
         >
-          {/* Framed contextual container */}
-          <div
+          <a
+            href="#agenda"
             style={{
-              position: 'relative',
-              width: '100%',
-              maxWidth: '380px',
-              aspectRatio: '0.82',
-              borderRadius: '24px',
-              overflow: 'hidden',
-              backgroundColor: 'var(--surface)',
-              border: '1px solid var(--border-soft)',
-              boxShadow: 'var(--card-shadow, 0 10px 40px rgba(0,0,0,0.04))',
+              fontFamily: '"DM Sans", sans-serif',
+              fontSize: '0.95rem',
+              fontWeight: '600',
+              color: 'var(--text-on-dark-accent)',
+              textDecoration: 'none',
+              backgroundColor: 'var(--gold)',
+              padding: '16px 32px',
+              borderRadius: '8px',
+              letterSpacing: '0.01em',
+              transition: 'all 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '10px',
+              boxShadow: '0 4px 16px var(--gold-a20)',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = 'var(--gold-light)';
+              e.currentTarget.style.transform = 'translateY(-2px)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = 'var(--gold)';
+              e.currentTarget.style.transform = 'translateY(0)';
             }}
           >
-            {/* The real psychologist photo */}
-            <img
-              src="/psicologa.png"
-              alt="Lic. María González — Raíz Terapia"
-              style={{
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover',
-                objectPosition: 'center top',
-              }}
-            />
+            <IconCalendar />
+            Reservar consulta
+          </a>
 
-            {/* Subtle soft bottom info card over image instead of floating badge */}
-            <div
-              style={{
-                position: 'absolute',
-                bottom: '0',
-                left: '0',
-                right: '0',
-                background: 'linear-gradient(to top, rgba(28, 38, 33, 0.95) 0%, rgba(28, 38, 33, 0.7) 70%, transparent 100%)',
-                padding: '28px 24px 20px',
-                textAlign: 'left',
-              }}
-            >
-              <div
+          <a
+            href="#sobre-mi"
+            style={{
+              fontFamily: '"DM Sans", sans-serif',
+              fontSize: '0.9rem',
+              fontWeight: '500',
+              color: 'var(--text-muted)',
+              textDecoration: 'none',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+              padding: '12px 16px',
+              borderRadius: '8px',
+              transition: 'all 0.2s ease',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.color = 'var(--text-primary)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.color = 'var(--text-muted)';
+            }}
+          >
+            Conocer el espacio
+            <IconArrowDown />
+          </a>
+        </div>
+      </div>
+
+      {/* Bottom Editorial Pillars — Authentic, non-generic value points */}
+      <div
+        className="section-inner"
+        style={{
+          position: 'relative',
+          zIndex: 2,
+          width: '100%',
+          maxWidth: '1200px',
+          margin: '0 auto',
+          borderTop: '1px solid var(--border)',
+          paddingTop: '28px',
+        }}
+      >
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+            gap: '24px',
+          }}
+        >
+          {[
+            {
+              index: '01',
+              title: 'Metodología TCC',
+              desc: 'Herramientas prácticas orientadas a objetivos claros y cambios sostenibles.',
+            },
+            {
+              index: '02',
+              title: 'Modalidad Flexible',
+              desc: 'Consultorio en Palermo o sesiones online para todo el país y el exterior.',
+            },
+            {
+              index: '03',
+              title: 'Espacio Seguro',
+              desc: 'Acompañamiento profesional ético, confidencial y sin juicios.',
+            },
+          ].map((item) => (
+            <div key={item.index} style={{ display: 'flex', gap: '14px', alignItems: 'flex-start' }}>
+              <span
                 style={{
                   fontFamily: 'var(--font-display)',
-                  fontSize: '1.25rem',
+                  fontSize: '0.8rem',
                   fontWeight: '700',
-                  color: '#FFFFFF',
-                  marginBottom: '4px',
-                  letterSpacing: '-0.01em',
+                  color: 'var(--gold)',
+                  opacity: 0.8,
+                  marginTop: '1px',
                 }}
               >
-                Lic. María González
-              </div>
-              <div
-                style={{
-                  fontFamily: '"DM Sans", sans-serif',
-                  fontSize: '0.75rem',
-                  color: 'var(--text-agenda-body)',
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.08em',
-                }}
-              >
-                Matrícula Nacional 12.345 · UBA
+                {item.index}
+              </span>
+              <div>
+                <h4
+                  style={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '0.95rem',
+                    fontWeight: '700',
+                    color: 'var(--text-primary)',
+                    margin: '0 0 4px 0',
+                    letterSpacing: '-0.01em',
+                  }}
+                >
+                  {item.title}
+                </h4>
+                <p
+                  style={{
+                    fontFamily: '"DM Sans", sans-serif',
+                    fontSize: '0.82rem',
+                    color: 'var(--text-muted)',
+                    margin: 0,
+                    lineHeight: '1.5',
+                  }}
+                >
+                  {item.desc}
+                </p>
               </div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
