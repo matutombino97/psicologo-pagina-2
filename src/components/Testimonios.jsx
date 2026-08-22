@@ -131,7 +131,7 @@ export default function Testimonios() {
   const scrollToIndex = (pageIndex) => {
     const clamped = Math.max(0, Math.min(pageIndex, totalPages - 1));
     setCurrentIndex(clamped);
-    
+
     const cardIndex = Math.min(clamped * cardsPerView, TESTIMONIALS.length - 1);
 
     if (trackRef.current) {
@@ -148,7 +148,7 @@ export default function Testimonios() {
   return (
     <section
       style={{
-        backgroundColor: 'var(--bg-warm)',
+        backgroundColor: "var(--bg-warm)",
         padding: '120px 0',
         position: 'relative',
         overflow: 'hidden',
