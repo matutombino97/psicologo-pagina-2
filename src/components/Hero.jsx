@@ -35,16 +35,24 @@ export default function Hero() {
         paddingTop: '80px',
       }}
     >
-      {/* Organic Background Radial Glows */}
+      {/* Background Image from Unsplash (Minimalist warm consulting office) */}
       <div
         style={{
           position: 'absolute',
           inset: 0,
-          background: `
-            radial-gradient(circle 600px at 10% 20%, var(--hero-radial-1) 0%, transparent 80%),
-            radial-gradient(circle 500px at 90% 80%, var(--hero-radial-2) 0%, transparent 80%),
-            var(--hero-gradient)
-          `,
+          backgroundImage: `url('https://images.unsplash.com/photo-1598256989800-fe5f95da9787?q=80&w=1920&auto=format&fit=crop')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          pointerEvents: 'none',
+          zIndex: 0,
+        }}
+      />
+      {/* Brand-consistent overlay */}
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          backgroundColor: 'var(--hero-bg-image-overlay)',
           pointerEvents: 'none',
           zIndex: 0,
         }}

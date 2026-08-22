@@ -1,4 +1,3 @@
-import CustomCursor from './components/CustomCursor';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import SchedulingWidget from './components/SchedulingWidget';
@@ -16,7 +15,6 @@ function App() {
 
   return (
     <ThemeProvider>
-      <CustomCursor />
       <Navbar />
       <main>
         <Hero />
