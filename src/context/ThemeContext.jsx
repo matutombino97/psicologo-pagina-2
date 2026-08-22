@@ -5,9 +5,9 @@ const ThemeContext = createContext();
 export function ThemeProvider({ children }) {
   const [theme, setTheme] = useState(() => {
     try {
-      return localStorage.getItem('raizterapia-theme') || 'light';
+      return localStorage.getItem('raizterapia-theme') || 'dark';
     } catch {
-      return 'light';
+      return 'dark';
     }
   });
 

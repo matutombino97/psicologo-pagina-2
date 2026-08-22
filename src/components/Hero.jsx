@@ -48,12 +48,23 @@ export default function Hero() {
         }}
       />
 
-      {/* Directional Overlay: Solid & legible on the left, translucent on the right */}
+      {/* Directional Horizontal Overlay (Text legibility on the left, open room on the right) */}
       <div
         style={{
           position: 'absolute',
           inset: 0,
           background: 'var(--hero-bg-image-overlay)',
+          pointerEvents: 'none',
+          zIndex: 0,
+        }}
+      />
+
+      {/* Grounding Bottom Scrim (Ensures depth & readability for 01, 02, 03 pillars) */}
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          background: 'var(--hero-bottom-scrim)',
           pointerEvents: 'none',
           zIndex: 0,
         }}
@@ -75,7 +86,7 @@ export default function Hero() {
           paddingBottom: '64px',
         }}
       >
-        {/* Top Context Indicator — Discreet Editorial Tag (No UI pill capsule) */}
+        {/* Top Context Indicator — Discreet Editorial Tag */}
         <div
           style={{
             display: 'inline-flex',
@@ -91,7 +102,8 @@ export default function Hero() {
               borderRadius: '50%',
               backgroundColor: '#25D366',
               display: 'inline-block',
-              opacity: 0.85,
+              opacity: 0.9,
+              boxShadow: '0 0 8px rgba(37, 211, 102, 0.4)',
             }}
           />
           <span
@@ -200,6 +212,7 @@ export default function Hero() {
               display: 'inline-flex',
               alignItems: 'center',
               gap: '10px',
+              boxShadow: '0 4px 16px rgba(0, 0, 0, 0.15)',
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.backgroundColor = 'var(--gold-light)';
@@ -241,7 +254,7 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Bottom Editorial Pillars — Pure Layout Integration (No cards, no boxes, no shadows) */}
+      {/* Bottom Editorial Pillars with Enhanced Contrast and Architectural Depth */}
       <div
         className="section-inner"
         style={{
@@ -250,15 +263,15 @@ export default function Hero() {
           width: '100%',
           maxWidth: '1200px',
           margin: '0 auto',
-          borderTop: '1px solid var(--border-soft)',
-          paddingTop: '28px',
+          borderTop: '1px solid var(--border-solid)',
+          paddingTop: '32px',
         }}
       >
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-            gap: '32px',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+            gap: '36px',
           }}
         >
           {[
@@ -278,15 +291,16 @@ export default function Hero() {
               desc: 'Acompañamiento profesional ético, confidencial y sin juicios.',
             },
           ].map((item) => (
-            <div key={item.index} style={{ display: 'flex', gap: '14px', alignItems: 'flex-start' }}>
+            <div key={item.index} style={{ display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
               <span
                 style={{
-                  fontFamily: '"DM Sans", sans-serif',
-                  fontSize: '0.75rem',
-                  fontWeight: '600',
-                  color: 'var(--text-dim)',
-                  letterSpacing: '0.08em',
-                  marginTop: '2px',
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '0.85rem',
+                  fontWeight: '800',
+                  color: 'var(--gold)',
+                  letterSpacing: '0.06em',
+                  marginTop: '1px',
+                  lineHeight: 1.2,
                 }}
               >
                 {item.index}
@@ -295,10 +309,10 @@ export default function Hero() {
                 <h4
                   style={{
                     fontFamily: 'var(--font-display)',
-                    fontSize: '0.95rem',
-                    fontWeight: '600',
+                    fontSize: '1rem',
+                    fontWeight: '700',
                     color: 'var(--text-primary)',
-                    margin: '0 0 4px 0',
+                    margin: '0 0 6px 0',
                     letterSpacing: '-0.01em',
                   }}
                 >
@@ -307,10 +321,10 @@ export default function Hero() {
                 <p
                   style={{
                     fontFamily: '"DM Sans", sans-serif',
-                    fontSize: '0.825rem',
-                    color: 'var(--text-muted)',
+                    fontSize: '0.875rem',
+                    color: 'var(--text-body)',
                     margin: 0,
-                    lineHeight: '1.55',
+                    lineHeight: '1.6',
                   }}
                 >
                   {item.desc}
