@@ -729,19 +729,19 @@ section, footer, nav, .testimonial-card, .card-hover {
 
   /* Agenda Single-Screen Mobile Layout */
   .agenda-section {
-    padding: 48px 0 64px !important;
+    padding: 36px 0 54px !important;
   }
   .agenda-header {
-    margin-bottom: 16px !important;
+    margin-bottom: 14px !important;
   }
   .agenda-subtitle {
     display: none !important;
   }
   .agenda-progress-header {
-    padding: 16px 16px 0 !important;
+    padding: 14px 14px 0 !important;
   }
   .agenda-step-content {
-    padding: 0 14px 16px !important;
+    padding: 0 12px 14px !important;
     min-height: auto !important;
   }
   .agenda-step1-grid {
@@ -749,27 +749,58 @@ section, footer, nav, .testimonial-card, .card-hover {
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 8px !important;
   }
+  .agenda-card-top-row {
+    position: absolute !important;
+    top: 6px !important;
+    right: 6px !important;
+  }
+  .agenda-cat-icon,
+  .agenda-mod-icon {
+    display: none !important;
+  }
+  .agenda-check-badge {
+    width: 16px !important;
+    height: 16px !important;
+    font-size: 0.65rem !important;
+  }
   .agenda-cat-btn {
-    padding: 10px 10px !important;
-    min-height: 76px !important;
+    padding: 10px 8px !important;
+    min-height: 64px !important;
+    justify-content: center !important;
+  }
+  .agenda-cat-title {
+    font-size: 0.825rem !important;
+    margin-bottom: 2px !important;
+    line-height: 1.2 !important;
   }
   .agenda-cat-desc {
-    display: -webkit-box !important;
-    -webkit-line-clamp: 2 !important;
-    -webkit-box-orient: vertical !important;
-    overflow: hidden !important;
+    font-size: 0.7rem !important;
+    line-height: 1.25 !important;
+    display: block !important;
+    overflow: visible !important;
   }
   .agenda-step2-grid {
     display: grid !important;
     grid-template-columns: repeat(3, 1fr) !important;
-    gap: 8px !important;
+    gap: 6px !important;
   }
   .agenda-mod-btn {
-    padding: 12px 6px !important;
-    min-height: 84px !important;
+    padding: 12px 4px !important;
+    min-height: 60px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+  }
+  .agenda-mod-title {
+    font-size: 0.85rem !important;
+    margin-bottom: 2px !important;
+  }
+  .agenda-mod-desc {
+    font-size: 0.68rem !important;
+    line-height: 1.2 !important;
   }
   .agenda-nav-footer {
-    padding: 12px 16px !important;
+    padding: 10px 14px !important;
     border-top: 1px solid var(--border-solid) !important;
     background-color: var(--surface) !important;
     display: flex !important;
@@ -806,9 +837,40 @@ section, footer, nav, .testimonial-card, .card-hover {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 14px;
   }
+  .agenda-card-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+  .agenda-cat-icon {
+    display: flex;
+  }
+  .agenda-mod-icon {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 12px;
+  }
+  .agenda-check-badge {
+    width: 20px;
+    height: 20px;
+    font-size: 0.75rem;
+  }
   .agenda-cat-btn {
     padding: 22px 20px;
     min-height: 125px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .agenda-cat-title {
+    font-size: 0.95rem;
+    margin-bottom: 4px;
+    line-height: 1.3;
+  }
+  .agenda-cat-desc {
+    font-size: 0.825rem;
+    line-height: 1.5;
   }
   .agenda-step2-grid {
     display: grid;
@@ -817,6 +879,14 @@ section, footer, nav, .testimonial-card, .card-hover {
   }
   .agenda-mod-btn {
     padding: 32px 20px;
+  }
+  .agenda-mod-title {
+    font-size: 1.2rem;
+    margin-bottom: 6px;
+  }
+  .agenda-mod-desc {
+    font-size: 0.85rem;
+    line-height: 1.5;
   }
   .agenda-nav-footer {
     padding: 24px 36px;
