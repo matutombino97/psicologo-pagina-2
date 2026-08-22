@@ -22,11 +22,11 @@
   --terracotta-dark: #8E776F;
 
   /* Text */
-  --text-primary: #F0F4F2;
-  --text-body: #C5D0C9;
-  --text-muted: #95A59B;
-  --text-dim: #5C6E63;
-  --text-disabled: #435249;
+  --text-primary: #F4F7F5;
+  --text-body: #DCE5E0;
+  --text-muted: #A8B8AE;
+  --text-dim: #718578;
+  --text-disabled: #4A5B51;
   --text-on-dark-accent: #121A16;
   --text-agenda-heading: #F0F4F2;
   --text-agenda-body: #95A59B;
