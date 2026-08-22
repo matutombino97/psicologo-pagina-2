@@ -13,7 +13,7 @@ function IconCalendar() {
 
 function IconArrowDown() {
   return (
-    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <path d="M7 13l5 5 5-5M12 4v14" />
     </svg>
   );
@@ -31,11 +31,11 @@ export default function Hero() {
         justifyContent: 'space-between',
         overflow: 'hidden',
         backgroundColor: 'var(--bg-primary)',
-        paddingTop: '110px',
-        paddingBottom: '40px',
+        paddingTop: '120px',
+        paddingBottom: '48px',
       }}
     >
-      {/* Background Image from Unsplash (Minimalist warm consulting office) */}
+      {/* Background Image (Consulting room / Studio) */}
       <div
         style={{
           position: 'absolute',
@@ -48,7 +48,7 @@ export default function Hero() {
         }}
       />
 
-      {/* Brand-consistent Directional Gradient Overlay (ensures visibility & text contrast in both themes) */}
+      {/* Directional Overlay: Solid & legible on the left, translucent on the right */}
       <div
         style={{
           position: 'absolute',
@@ -62,7 +62,7 @@ export default function Hero() {
       {/* Grainy texture overlay */}
       <div className="grain-overlay" />
 
-      {/* Main Content Area */}
+      {/* Main Content (Editorial Left-Aligned Flow) */}
       <div
         className="section-inner"
         style={{
@@ -71,31 +71,27 @@ export default function Hero() {
           width: '100%',
           maxWidth: '1200px',
           margin: '0 auto',
-          paddingTop: '32px',
-          paddingBottom: '48px',
+          paddingTop: '24px',
+          paddingBottom: '64px',
         }}
       >
-        {/* Top Context Indicator */}
+        {/* Top Context Indicator — Discreet Editorial Tag (No UI pill capsule) */}
         <div
           style={{
             display: 'inline-flex',
             alignItems: 'center',
-            gap: '12px',
-            marginBottom: '28px',
-            padding: '6px 14px',
-            borderRadius: '100px',
-            backgroundColor: 'var(--gold-a08)',
-            border: '1px solid var(--border)',
+            gap: '10px',
+            marginBottom: '32px',
           }}
         >
           <span
             style={{
-              width: '7px',
-              height: '7px',
+              width: '6px',
+              height: '6px',
               borderRadius: '50%',
               backgroundColor: '#25D366',
-              boxShadow: '0 0 8px rgba(37, 211, 102, 0.6)',
               display: 'inline-block',
+              opacity: 0.85,
             }}
           />
           <span
@@ -103,22 +99,22 @@ export default function Hero() {
               fontFamily: '"DM Sans", sans-serif',
               fontSize: '0.75rem',
               fontWeight: '600',
-              color: 'var(--text-primary)',
-              letterSpacing: '0.04em',
+              color: 'var(--text-muted)',
+              letterSpacing: '0.12em',
               textTransform: 'uppercase',
             }}
           >
-            Consultorio Palermo · Atención Presencial & Online
+            Palermo · Presencial & Online
           </span>
         </div>
 
-        {/* Editorial Headline */}
-        <div style={{ maxWidth: '880px', marginBottom: '28px' }}>
+        {/* Editorial Headline with Typographic Weight Contrast */}
+        <div style={{ maxWidth: '840px', marginBottom: '32px' }}>
           <h1
             style={{
               fontFamily: 'var(--font-display)',
               color: 'var(--text-primary)',
-              lineHeight: '1.04',
+              lineHeight: '1.05',
               letterSpacing: '-0.035em',
               margin: 0,
             }}
@@ -126,11 +122,13 @@ export default function Hero() {
             <span
               style={{
                 display: 'block',
-                fontSize: 'clamp(1.4rem, 2.8vw, 2.2rem)',
-                fontWeight: '400',
-                color: 'var(--text-muted)',
-                marginBottom: '10px',
-                letterSpacing: '-0.01em',
+                fontSize: 'clamp(0.95rem, 1.4vw, 1.15rem)',
+                fontWeight: '500',
+                color: 'var(--terracotta)',
+                textTransform: 'uppercase',
+                letterSpacing: '0.08em',
+                marginBottom: '14px',
+                fontFamily: '"DM Sans", sans-serif',
               }}
             >
               Psicoterapia individual basada en evidencia
@@ -138,11 +136,11 @@ export default function Hero() {
             <span
               style={{
                 display: 'block',
-                fontSize: 'clamp(2.6rem, 6vw, 4.8rem)',
+                fontSize: 'clamp(2.75rem, 6vw, 4.8rem)',
                 fontWeight: '800',
                 color: 'var(--text-primary)',
                 letterSpacing: '-0.04em',
-                marginBottom: '8px',
+                marginBottom: '6px',
               }}
             >
               Entender el origen.
@@ -150,10 +148,11 @@ export default function Hero() {
             <span
               style={{
                 display: 'block',
-                fontSize: 'clamp(2rem, 4.8vw, 3.8rem)',
-                fontWeight: '600',
-                color: 'var(--gold)',
-                letterSpacing: '-0.03em',
+                fontSize: 'clamp(2.25rem, 5.2vw, 4.1rem)',
+                fontWeight: '300',
+                color: 'var(--text-primary)',
+                letterSpacing: '-0.025em',
+                opacity: 0.9,
               }}
             >
               Transformar tu día a día.
@@ -165,23 +164,23 @@ export default function Hero() {
         <p
           style={{
             fontFamily: '"DM Sans", sans-serif',
-            fontSize: 'clamp(1.05rem, 1.35vw, 1.2rem)',
+            fontSize: 'clamp(1.05rem, 1.3vw, 1.15rem)',
             fontWeight: '400',
             color: 'var(--text-body)',
-            maxWidth: '620px',
-            lineHeight: '1.7',
-            marginBottom: '40px',
+            maxWidth: '560px',
+            lineHeight: '1.75',
+            marginBottom: '44px',
           }}
         >
           Un espacio seguro y confidencial donde desarmar lo que abruma y construir recursos prácticos para tu bienestar emocional y tus vínculos.
         </p>
 
-        {/* Action Group */}
+        {/* Primary CTA and Secondary Link */}
         <div
           style={{
             display: 'flex',
             alignItems: 'center',
-            gap: '20px',
+            gap: '24px',
             flexWrap: 'wrap',
           }}
         >
@@ -195,17 +194,16 @@ export default function Hero() {
               textDecoration: 'none',
               backgroundColor: 'var(--gold)',
               padding: '16px 32px',
-              borderRadius: '8px',
+              borderRadius: '6px',
               letterSpacing: '0.01em',
               transition: 'all 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
               display: 'inline-flex',
               alignItems: 'center',
               gap: '10px',
-              boxShadow: '0 4px 16px var(--gold-a20)',
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.backgroundColor = 'var(--gold-light)';
-              e.currentTarget.style.transform = 'translateY(-2px)';
+              e.currentTarget.style.transform = 'translateY(-1px)';
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.backgroundColor = 'var(--gold)';
@@ -227,9 +225,8 @@ export default function Hero() {
               display: 'inline-flex',
               alignItems: 'center',
               gap: '6px',
-              padding: '12px 16px',
-              borderRadius: '8px',
-              transition: 'all 0.2s ease',
+              padding: '8px 0',
+              transition: 'color 0.2s ease',
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.color = 'var(--text-primary)';
@@ -244,7 +241,7 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Bottom Editorial Pillars — Authentic, non-generic value points */}
+      {/* Bottom Editorial Pillars — Pure Layout Integration (No cards, no boxes, no shadows) */}
       <div
         className="section-inner"
         style={{
@@ -253,7 +250,7 @@ export default function Hero() {
           width: '100%',
           maxWidth: '1200px',
           margin: '0 auto',
-          borderTop: '1px solid var(--border)',
+          borderTop: '1px solid var(--border-soft)',
           paddingTop: '28px',
         }}
       >
@@ -261,7 +258,7 @@ export default function Hero() {
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-            gap: '24px',
+            gap: '32px',
           }}
         >
           {[
@@ -284,12 +281,12 @@ export default function Hero() {
             <div key={item.index} style={{ display: 'flex', gap: '14px', alignItems: 'flex-start' }}>
               <span
                 style={{
-                  fontFamily: 'var(--font-display)',
-                  fontSize: '0.8rem',
-                  fontWeight: '700',
-                  color: 'var(--gold)',
-                  opacity: 0.8,
-                  marginTop: '1px',
+                  fontFamily: '"DM Sans", sans-serif',
+                  fontSize: '0.75rem',
+                  fontWeight: '600',
+                  color: 'var(--text-dim)',
+                  letterSpacing: '0.08em',
+                  marginTop: '2px',
                 }}
               >
                 {item.index}
@@ -299,7 +296,7 @@ export default function Hero() {
                   style={{
                     fontFamily: 'var(--font-display)',
                     fontSize: '0.95rem',
-                    fontWeight: '700',
+                    fontWeight: '600',
                     color: 'var(--text-primary)',
                     margin: '0 0 4px 0',
                     letterSpacing: '-0.01em',
@@ -310,10 +307,10 @@ export default function Hero() {
                 <p
                   style={{
                     fontFamily: '"DM Sans", sans-serif',
-                    fontSize: '0.82rem',
+                    fontSize: '0.825rem',
                     color: 'var(--text-muted)',
                     margin: 0,
-                    lineHeight: '1.5',
+                    lineHeight: '1.55',
                   }}
                 >
                   {item.desc}

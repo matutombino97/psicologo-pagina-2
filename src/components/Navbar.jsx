@@ -83,18 +83,16 @@ export default function Navbar() {
             color: 'var(--text-on-dark-accent)',
             textDecoration: 'none',
             backgroundColor: 'var(--terracotta)',
-            padding: '10px 24px',
-            borderRadius: '100px',
-            letterSpacing: '0.03em',
-            transition: 'background-color 0.2s ease, transform 0.2s ease',
+            padding: '10px 22px',
+            borderRadius: '6px',
+            letterSpacing: '0.02em',
+            transition: 'background-color 0.2s ease, opacity 0.2s ease',
           }}
           onMouseEnter={(e) => {
             e.target.style.backgroundColor = 'var(--terracotta-dark)';
-            e.target.style.transform = 'scale(1.03)';
           }}
           onMouseLeave={(e) => {
             e.target.style.backgroundColor = 'var(--terracotta)';
-            e.target.style.transform = 'scale(1)';
           }}
         >
           Reservar Consulta
@@ -183,7 +181,7 @@ export default function Navbar() {
               textDecoration: 'none',
               backgroundColor: 'var(--terracotta)',
               padding: '12px 24px',
-              borderRadius: '100px',
+              borderRadius: '6px',
               textAlign: 'center',
               marginTop: '8px',
             }}

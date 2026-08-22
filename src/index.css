@@ -78,7 +78,7 @@
   --hero-gradient: linear-gradient(135deg, #121A16 0%, #18241F 60%, #1C2B24 100%);
   --hero-radial-1: rgba(138, 166, 149, 0.06);
   --hero-radial-2: rgba(166, 142, 133, 0.04);
-  --hero-bg-image-overlay: linear-gradient(90deg, rgba(18, 26, 22, 0.95) 0%, rgba(18, 26, 22, 0.86) 50%, rgba(18, 26, 22, 0.45) 100%);
+  --hero-bg-image-overlay: linear-gradient(90deg, rgba(18, 26, 22, 0.96) 0%, rgba(18, 26, 22, 0.85) 38%, rgba(18, 26, 22, 0.45) 72%, rgba(18, 26, 22, 0.2) 100%);
   --divider-accent: linear-gradient(to right, transparent, rgba(138, 166, 149, 0.15), transparent);
   --divider-accent-soft: linear-gradient(to right, transparent, rgba(138, 166, 149, 0.1), transparent);
   --photo-gradient: linear-gradient(180deg, #26382F 0%, #18241F 50%, #121A16 100%);
@@ -185,7 +185,7 @@
   --hero-gradient: linear-gradient(135deg, #FAF9F6 0%, #F5F3EE 50%, #ECEAE2 100%);
   --hero-radial-1: rgba(46, 68, 54, 0.05);
   --hero-radial-2: rgba(135, 110, 101, 0.03);
-  --hero-bg-image-overlay: linear-gradient(90deg, rgba(250, 249, 246, 0.95) 0%, rgba(250, 249, 246, 0.84) 50%, rgba(250, 249, 246, 0.3) 100%);
+  --hero-bg-image-overlay: linear-gradient(90deg, rgba(250, 249, 246, 0.96) 0%, rgba(250, 249, 246, 0.86) 38%, rgba(250, 249, 246, 0.42) 72%, rgba(250, 249, 246, 0.15) 100%);
   --divider-accent: linear-gradient(to right, transparent, rgba(46, 68, 54, 0.12), transparent);
   --divider-accent-soft: linear-gradient(to right, transparent, rgba(46, 68, 54, 0.08), transparent);
   --photo-gradient: linear-gradient(180deg, #ECEAE2 0%, #F5F3EE 50%, #FAF9F6 100%);
@@ -674,6 +674,14 @@ section, footer, nav, .testimonial-card, .card-hover {
   #agenda > div > div {
     padding-left: 16px !important;
     padding-right: 16px !important;
+  }
+
+  /* Responsive Hero Overlay */
+  :root {
+    --hero-bg-image-overlay: linear-gradient(180deg, rgba(18, 26, 22, 0.96) 0%, rgba(18, 26, 22, 0.88) 60%, rgba(18, 26, 22, 0.45) 100%);
+  }
+  [data-theme="light"] {
+    --hero-bg-image-overlay: linear-gradient(180deg, rgba(250, 249, 246, 0.96) 0%, rgba(250, 249, 246, 0.88) 60%, rgba(250, 249, 246, 0.4) 100%);
   }
 }
 
