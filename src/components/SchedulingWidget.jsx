@@ -7,6 +7,8 @@ const CATEGORIES = [
   { id: 'autoestima', icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>, title: 'Autoestima', desc: 'Inseguridad, confianza e identidad' },
   { id: 'trabajo', icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>, title: 'Ámbito laboral', desc: 'Burnout, exigencia y metas' },
   { id: 'orientacion', icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>, title: 'Orientación', desc: 'Primer encuentro de exploración' },
+  { id: 'otro', icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>, title: 'Otro tema', desc: 'No lo tengo claro o es distinto' },
+  { id: 'privado', icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>, title: 'Prefiero no decirlo', desc: 'Te lo cuento por privado en WhatsApp' }
 ];
 
 const MODALITIES = [
@@ -72,7 +74,7 @@ export default function SchedulingWidget() {
     const dateNatural = formatDateNatural(selectedDate);
     const text = encodeURIComponent(
       `Hola! Me gustaría consultar disponibilidad para una sesión en Raíz Terapia.\n\n` +
-      `📌 Motivo: ${cat?.title}\n` +
+      `📌 Motivo: ${cat ? cat.title : 'Prefiero comentarlo por privado'}\n` +
       `📌 Modalidad: ${mod?.title}\n` +
       `📌 Fecha preferida: ${dateNatural}${selectedTime ? ` a las ${selectedTime}hs` : ''}\n\n` +
       `👤 Nombre: ${form.nombre}\n` +
@@ -86,7 +88,7 @@ export default function SchedulingWidget() {
   };
 
   const canNext = () => {
-    if (step === 1) return !!selectedCategory;
+    if (step === 1) return true;
     if (step === 2) return !!selectedModality;
     if (step === 3) return !!selectedDate;
     return false;
@@ -252,7 +254,7 @@ export default function SchedulingWidget() {
                       letterSpacing: '-0.015em',
                     }}
                   >
-                    ¿Qué estás atravesando?
+                    ¿Sobre qué te gustaría conversar?
                   </h3>
                   <p
                     style={{
@@ -262,7 +264,7 @@ export default function SchedulingWidget() {
                       margin: 0,
                     }}
                   >
-                    Seleccioná tu motivo principal de consulta.
+                    Seleccioná tu motivo principal de consulta (opcional).
                   </p>
                 </div>
 
@@ -343,6 +345,19 @@ export default function SchedulingWidget() {
                     </button>
                   ))}
                 </div>
+                
+                <p
+                  style={{
+                    fontFamily: '"DM Sans", sans-serif',
+                    fontSize: '0.75rem',
+                    color: 'var(--text-muted)',
+                    marginTop: '16px',
+                    textAlign: 'center',
+                    fontStyle: 'italic',
+                  }}
+                >
+                  * Esta selección es solo orientativa y no reemplaza una evaluación profesional.
+                </p>
               </div>
             )}
 
@@ -623,7 +638,7 @@ export default function SchedulingWidget() {
                   }}
                 >
                   {[
-                    { label: 'Motivo', value: CATEGORIES.find((c) => c.id === selectedCategory)?.title },
+                    { label: 'Motivo', value: CATEGORIES.find((c) => c.id === selectedCategory)?.title || 'No especificado' },
                     { label: 'Modalidad', value: MODALITIES.find((m) => m.id === selectedModality)?.title },
                     { label: 'Fecha', value: formatDateNatural(selectedDate) + (selectedTime ? ` (${selectedTime}hs)` : '') },
                   ].map((item) => (
